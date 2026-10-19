@@ -22,7 +22,7 @@
     "url": "https://www.nib.si/eng/"
   },
   "site": {
-    "url": "TODO: provide production site URL (e.g. https://example.org) — used for canonical and og:url",
+    "url": "https://urbandajcman.github.io",
     "description": "Urban Dajčman, ecologist at the National Institute of Biology, Slovenia. Research on species interactions, thermal ecology, ecophysiology and mechanistic niche modelling under climate change.",
     "og_image": "/images/og-default.jpg"
   },
