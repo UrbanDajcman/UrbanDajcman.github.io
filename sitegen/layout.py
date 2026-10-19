@@ -91,6 +91,10 @@ def head(profile: dict, title: str, description: str, path: str, og_type: str, e
     img = _abs_url(profile, og_image) if is_set(og_image) else None
     if img:
         lines.append(f'<meta property="og:image" content="{esc(img)}">')
+    # Google Search Console ownership check.
+    gsv = profile["site"].get("google_site_verification")
+    if is_set(gsv):
+        lines.append(f'<meta name="google-site-verification" content="{esc(gsv)}">')
     if extra:
         lines.append(extra)
     return "\n    ".join(lines)
