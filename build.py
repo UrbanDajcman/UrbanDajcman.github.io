@@ -56,7 +56,7 @@ def build() -> list[Path]:
         shutil.rmtree(DIST)
     shutil.copytree(STATIC, DIST)
     data = load_data()
-    written = []
+    written, listed = [], []
     for fn in PAGES:
         path, title, description, body, extra = fn(data)
         html = page(data["profile"], path=path, title=title, description=description,
@@ -65,7 +65,23 @@ def build() -> list[Path]:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding="utf-8")
         written.append(target)
+        if 'http-equiv="refresh"' not in extra and not path.endswith(".html"):  # no forwarding or error pages
+            listed.append(path)
+    write_sitemap(data["profile"], listed)
     return written
+
+
+def write_sitemap(profile: dict, paths: list[str]) -> None:
+    """sitemap.xml and robots.txt for search engines (only once the site address is set)."""
+    base = profile["site"].get("url", "")
+    if not base or base.startswith("TODO"):
+        return
+    base = base.rstrip("/")
+    urls = "".join(f"  <url><loc>{base}{p}</loc></url>\n" for p in paths)
+    (DIST / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n', encoding="utf-8")
+    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
 
 
 # --------------------------------------------------------------------------
