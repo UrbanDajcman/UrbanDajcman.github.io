@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Private or local only — never published
+CV/
+photos/
+_archive/
+.claude/settings.local.json
+CLAUDE.md

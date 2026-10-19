@@ -1,0 +1,470 @@
+{
+  "_note": "Single source of truth for identity, affiliation and links. Any string value starting with 'TODO' is treated as missing by build.py and is NOT rendered. Employment start, MSc, languages, programme and project participation are from Urban's COBISS/SICRIS researcher record (checked 2026-10-07). Google Scholar, ResearchGate and GitHub links provided by Urban; thesis titles from his Google Scholar profile. Positions, education, international experience, conferences, roles, skills, languages, honours, co-supervision, talks, teaching, fieldwork, grants, memberships and outreach are from Urban's own CV; private details and bibliometric indicators are deliberately not published.",
+  "name": "Urban Dajčman",
+  "honorific_prefix": "Dr.",
+  "author_name_variants": [
+    "Dajčman, U.",
+    "Dajčman U",
+    "Dajčman U.",
+    "U. Dajčman",
+    "Urban Dajčman",
+    "Dajčman"
+  ],
+  "role": "Ecologist and postdoctoral researcher",
+  "current_title": "Postdoctoral researcher",
+  "tagline": "Ecologist studying how physiology, climate and species interactions shape where organisms can live.",
+  "affiliation": {
+    "institution": "National Institute of Biology (NIB)",
+    "institution_short": "NIB",
+    "department": "Department of Organisms and Ecosystems Research",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "url": "https://www.nib.si/eng/"
+  },
+  "site": {
+    "url": "TODO: provide production site URL (e.g. https://example.org) — used for canonical and og:url",
+    "description": "Urban Dajčman, ecologist at the National Institute of Biology, Slovenia. Research on species interactions, thermal ecology, ecophysiology and mechanistic niche modelling under climate change.",
+    "og_image": "/images/og-default.jpg"
+  },
+  "links": {
+    "email": "urban.dajcman@nib.si",
+    "institutional_profile": "TODO: provide NIB staff profile URL",
+    "orcid": "https://orcid.org/0000-0002-3490-9234",
+    "google_scholar": "https://scholar.google.com/citations?user=UPKtOLUAAAAJ",
+    "github": "https://github.com/UrbanDajcman",
+    "researchgate": "https://www.researchgate.net/profile/Urban-Dajcman",
+    "linkedin": "TODO: optional — LinkedIn profile URL",
+    "inaturalist": "https://www.inaturalist.org/people/488130"
+  },
+  "knows_about": [
+    "Mechanistic niche modelling",
+    "Species interactions",
+    "Species coexistence",
+    "Thermal ecology",
+    "Ecophysiology",
+    "Climate change",
+    "Dynamic Energy Budget models",
+    "Microclimate modelling",
+    "Herpetology",
+    "Parasite ecology",
+    "Conservation biology"
+  ],
+  "positions": [
+    {
+      "title": "Assistant with PhD (postdoctoral researcher)",
+      "organisation": "National Institute of Biology (NIB), Department of Organisms and Ecosystems Research, Ljubljana",
+      "start": "2026",
+      "end": null,
+      "details": [
+        "Mechanistic modelling of species coexistence under changing abiotic and biotic conditions (DEB theory, correlative modelling, species distributions, climate change impacts).",
+        "NIB project leader and coordinator, LIFE4ADAPT.",
+        "Team member on ARIS projects J1-50013 (ExtremePredator) and J1-60010 (CO-STRIX), within programme P1-0255.",
+        "Research data steward of the department."
+      ]
+    },
+    {
+      "title": "Assistant",
+      "organisation": "National Institute of Biology (NIB), Ljubljana",
+      "start": "2024",
+      "end": "2026",
+      "details": [
+        "Completion of the PhD; work on ARIS projects J1-60010, J1-50013 and J1-2466; took over NIB coordination of LIFE4ADAPT."
+      ]
+    },
+    {
+      "title": "Young researcher (PhD candidate)",
+      "organisation": "National Institute of Biology (NIB), Ljubljana",
+      "start": "2020",
+      "end": "2024",
+      "details": [
+        "PhD research on lizard ecology: biotic and abiotic drivers of coexistence, using molecular, ecophysiological and modelling approaches."
+      ]
+    },
+    {
+      "title": "Biologist (student work)",
+      "organisation": "National Institute of Biology (NIB), Ljubljana",
+      "start": "2019",
+      "end": "2021",
+      "details": [
+        "Laboratory and ecophysiological measurements, fieldwork sampling Slovenian reptiles, data analysis."
+      ]
+    },
+    {
+      "title": "Field biologist",
+      "organisation": "Herpetological Society – Societas herpetologica slovenica",
+      "start": "2015",
+      "end": "2020",
+      "details": [
+        "Radio-telemetry and nest protection of the European pond turtle, *Emys orbicularis*, at Ljubljansko barje (2015–2017); reptile survey for NIB (2020)."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD in Biosciences (Biology), cum laude",
+      "field": "",
+      "institution": "University of Ljubljana, Biotechnical Faculty",
+      "year": "2026",
+      "thesis_title": "Mechanistic understanding of ecological niche overlap in two sympatric lizard species",
+      "supervisors": "Anamarija Žagar (supervisor), Urtzi Enriquez-Urzelai (co-supervisor)"
+    },
+    {
+      "degree": "Master's degree in Ecology and Biodiversity",
+      "field": "",
+      "institution": "University of Ljubljana, Biotechnical Faculty",
+      "year": "2020",
+      "thesis_title": "Vpliv krvnih parazitov skupine Haemogregarina na medvrstne odnose kuščaric na primeru dveh tekmujočih vrst: *Iberolacerta horvathi* in *Podarcis muralis* v Sloveniji",
+      "supervisors": "Rok Kostanjšek (supervisor), Anamarija Žagar (co-supervisor)",
+      "thesis_title_en": "Effects of haemogregarine blood parasites on interspecific relationships between two competing lizard species, *Iberolacerta horvathi* and *Podarcis muralis*, in Slovenia"
+    },
+    {
+      "degree": "BSc in Biology",
+      "field": "",
+      "institution": "University of Ljubljana, Biotechnical Faculty",
+      "year": "2016"
+    }
+  ],
+  "research_participation": [
+    {
+      "acronym": "WETADAPT",
+      "name": "Adaptive and plastic potential of ectotherm physiology for responding to climate change",
+      "kind": "Research project, ARIS",
+      "code": "J1-2466",
+      "years": "2020–2025",
+      "leader": "Anamarija Žagar",
+      "url": "https://wetadapt.si/",
+      "summary": "Whether traits involved in metabolism and water retention allow lizards living along climatic gradients to respond to climate change through adaptation or plasticity.",
+      "role": "Team member",
+      "description": [
+        "Can lizards keep up with a warming, drying climate? WETADAPT asked how much of their physiology, especially metabolism and the ability to hold on to water, can adapt or adjust.",
+        "The project compared populations of two mountain lizards sampled along long elevation gradients: *Gallotia galloti* in the subtropical climate of Tenerife and *Iberolacerta horvathi* in temperate Slovenia. Work packages linked physiology to present-day climate, looked for genes under selection and changes in gene expression, and fed the results into mechanistic models that forecast how the species may respond to future climates."
+      ],
+      "status": "finished"
+    },
+    {
+      "acronym": "LIFE4ADAPT",
+      "name": "Slovenia's Strategic Integrated LIFE Project for Adaptation",
+      "kind": "Integrated project, EU LIFE programme",
+      "code": "LIFE23-IPC-SI-LIFE4ADAPT",
+      "years": "2025–2032",
+      "url": "https://webgate.ec.europa.eu/life/publicWebsite/project/LIFE23-IPC-SI-LIFE4ADAPT-101147797/slovenias-strategic-integrated-life-project-for-adaptation",
+      "summary": "Implements Slovenia's national strategy for adaptation to climate change, with pilot measures in agriculture, forestry, nature conservation, health, water management and the economy.",
+      "role": "NIB project leader and coordinator",
+      "description": [
+        "One of Slovenia's largest climate-adaptation projects: 14 partners and 5 associated organisations, led by the national environment ministry, working until 2032 to make the country more resilient to heat waves, droughts, floods and fires.",
+        "The project implements Slovenia's Strategic Framework for Climate Change Adaptation through 14 pilot measures in water management, agriculture, forestry, nature conservation, public health and the economy, and sets up a national centre for climate analyses and projections. I lead and coordinate the National Institute of Biology's part of the work."
+      ]
+    },
+    {
+      "acronym": "CO-STRIX",
+      "name": "Evolutionary effects of competition in coexisting apex predator populations",
+      "kind": "Research project, ARIS",
+      "code": "J1-60010",
+      "years": "2025–2027",
+      "leader": "Al Vrezec",
+      "summary": "Competition between coexisting owl species and its evolutionary effects.",
+      "role": "Team member",
+      "description": [
+        "What does competition do to two predators that share the same forest over many generations? CO-STRIX studies the ecological and evolutionary effects of competition between coexisting apex predators.",
+        "It builds on Al Vrezec's long-term work on two forest owls, the tawny owl, *Strix aluco*, and the Ural owl, *Strix uralensis*, a natural pair for testing how competition shapes where predators live, what they eat and how their populations respond to the environment."
+      ]
+    },
+    {
+      "acronym": "ExtremePredator",
+      "name": "Revealing ecological roles of apex predators in extreme environments",
+      "kind": "Research project, ARIS",
+      "code": "J1-50013",
+      "years": "2023–2026",
+      "leader": "Miha Krofel",
+      "summary": "The ecological roles of apex predators, such as the lynx in high mountains, in extreme environments.",
+      "role": "Team member",
+      "description": [
+        "Apex predators feed more than themselves. ExtremePredator studies how the prey they leave behind moves nutrients through ecosystems where life is hardest: high mountains under long snow cover and deserts with almost no rain.",
+        "Camera traps follow which scavengers feed on kills of Eurasian lynx, cheetahs and brown hyenas, and GPS tags track golden eagles. Stable isotopes trace nitrogen carried from sea to land through soil, plants, insects and lizards, and show how hyenas change plant growth in the desert."
+      ]
+    },
+    {
+      "acronym": "P1-0255",
+      "name": "Communities, interactions and communications in ecosystems",
+      "kind": "Research programme, ARIS",
+      "code": "P1-0255",
+      "years": "2017–2027",
+      "leader": "David Stanković",
+      "role": "Programme member",
+      "description": [
+        "The National Institute of Biology's long-term research programme on how organisms interact and communicate, from individuals to whole ecosystems. My project work sits within it."
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Slovenian",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "C2"
+    },
+    {
+      "language": "Croatian",
+      "level": "C1"
+    },
+    {
+      "language": "German",
+      "level": "B1"
+    }
+  ],
+  "hero_quote": {
+    "text": "Though natural history studies may be difficult and arduous, for many of us they are fun to do: one works with live animals in natural environments, students can usefully participate, ingenious experiments must be designed, visits to interesting places are involved, and, when modern laboratory analyses are required, one can often find somebody else to do the lab work.",
+    "author": "A. Stanley Rand",
+    "year": "1994"
+  },
+  "international": [
+    {
+      "years": "2025",
+      "title": "Teaching assistant, 9th International Thematic School and Symposium on Dynamic Energy Budget Theory",
+      "place": "University of Crete, Heraklion, Greece"
+    },
+    {
+      "years": "2025",
+      "title": "Erasmus+ research traineeship, Biophysical Ecology Lab (Michael Kearney)",
+      "place": "School of BioSciences, University of Melbourne, Australia",
+      "detail": "Biophysical ecology, NicheMapR and Dynamic Energy Budget modelling of competing ectotherms."
+    },
+    {
+      "years": "2023",
+      "title": "8th International Thematic School and Symposium on Dynamic Energy Budget Theory",
+      "place": "Louisiana State University, Baton Rouge, USA"
+    },
+    {
+      "years": "2019",
+      "title": "Erasmus+ research traineeship (3 months)",
+      "place": "Senckenberg Natural History Collections, Dresden, Germany",
+      "detail": "Phylogeography and conservation genetics of the leopard tortoise, *Stigmochelys pardalis*."
+    },
+    {
+      "years": "2018",
+      "title": "Erasmus+ research traineeship (6 months)",
+      "place": "CIBIO-InBIO and Faculty of Sciences, University of Porto, Portugal",
+      "detail": "Blood parasites of lizards: molecular and microscopy methods."
+    }
+  ],
+  "conferences": [
+    {
+      "year": "2024",
+      "name": "12th International Symposium on Mediterranean Lacertid Lizards",
+      "place": "Madeira, Portugal"
+    },
+    {
+      "year": "2023",
+      "name": "8th International Symposium on Dynamic Energy Budget Theory for Metabolic Organization",
+      "place": "Baton Rouge, USA"
+    },
+    {
+      "year": "2022",
+      "name": "European Congress of Herpetology",
+      "place": "Belgrade, Serbia"
+    },
+    {
+      "year": "2021",
+      "name": "11th International Symposium on Mediterranean Lacertid Lizards",
+      "place": "online"
+    },
+    {
+      "year": "2019",
+      "name": "European Congress of Herpetology",
+      "place": "Milan, Italy"
+    },
+    {
+      "year": "2019",
+      "name": "Balkan Herpetological Congress",
+      "place": ""
+    },
+    {
+      "year": "2018",
+      "name": "Trends in Biodiversity and Evolution (TiBE)",
+      "place": "Vairão, Portugal"
+    },
+    {
+      "year": "2017",
+      "name": "European Congress of Herpetology",
+      "place": "Salzburg, Austria"
+    }
+  ],
+  "leadership": [
+    {
+      "years": "2025–",
+      "role": "NIB project leader and coordinator",
+      "org": "LIFE4ADAPT"
+    },
+    {
+      "years": "2018–2021",
+      "role": "President",
+      "org": "Herpetological Society – Societas herpetologica slovenica"
+    }
+  ],
+  "memberships": [
+    "Societas herpetologica slovenica (member since 2016; president 2018–2021; conservation committee)",
+    "Societas Europaea Herpetologica (since 2018)",
+    "Society for Experimental Biology (since 2024)",
+    "Thermal Ecology Alliance (since 2025)",
+    "Young Modellers in Ecology, observer (since 2025)"
+  ],
+  "skills": [
+    {
+      "area": "Data analysis",
+      "items": "R (RStudio), statistics, data visualisation"
+    },
+    {
+      "area": "Ecological modelling",
+      "items": "Dynamic Energy Budget theory, NicheMapR, species distribution models"
+    },
+    {
+      "area": "Spatial analysis",
+      "items": "GIS, QGIS, QField"
+    },
+    {
+      "area": "Molecular biology",
+      "items": "Geneious, phylogenetic software"
+    },
+    {
+      "area": "Design",
+      "items": "Adobe Photoshop, Illustrator, Lightroom, InDesign, Premiere"
+    }
+  ],
+  "fieldwork": [
+    {
+      "years": "2015–",
+      "place": "Slovenia and the Balkan Peninsula",
+      "detail": "Reptile and amphibian surveys, radio telemetry, ecophysiological and microclimate measurements."
+    },
+    {
+      "years": "2020–2024",
+      "place": "Canary Islands, Spain",
+      "detail": "Three expeditions on lizard ecology and ecophysiology along climatic gradients."
+    },
+    {
+      "years": "2022, 2026",
+      "place": "Namibia",
+      "detail": "Two expeditions in arid and hyper-arid ecosystems: ecophysiology of desert organisms and microclimate."
+    }
+  ],
+  "talks": [
+    {
+      "year": "2026",
+      "kind": "Invited lecture",
+      "title": "Mechanistic modelling and species interactions in conservation ecology",
+      "venue": "BIOPOLIS/CIBIO-InBIO, Porto, Portugal"
+    },
+    {
+      "year": "2025",
+      "kind": "Talk",
+      "title": "Modelling competition under current and future climate change scenarios in a pair of competing lacertid lizards",
+      "venue": "23rd European Congress of Herpetology, Bonn, Germany"
+    },
+    {
+      "year": "2025",
+      "kind": "Talk",
+      "title": "Mechanistic ecological modelling: species distributions, competition and climate change",
+      "venue": "NIB Scientific Day, Ljubljana"
+    },
+    {
+      "year": "2024",
+      "kind": "Talk",
+      "title": "Between the highlands and lowlands: mechanistic models exploring the ecological interplay of two lacertid species",
+      "venue": "12th International Symposium on Mediterranean Lacertid Lizards, Funchal, Portugal"
+    },
+    {
+      "year": "2023",
+      "kind": "Talk",
+      "title": "Integrating DEB models and NicheMapR to explore species coexistence in lacertid lizards",
+      "venue": "8th International Symposium on Dynamic Energy Budget Theory, Baton Rouge, USA"
+    },
+    {
+      "year": "2022",
+      "kind": "Talk",
+      "title": "Lacertid competition: insights from mechanistic modelling",
+      "venue": "21st European Congress of Herpetology, Belgrade, Serbia"
+    }
+  ],
+  "teaching": [
+    {
+      "years": "2026–",
+      "role": "Co-supervisor of two MSc students in reptile and amphibian ecology"
+    },
+    {
+      "years": "2024–2025",
+      "role": "Occasional guest lectures and fieldwork teaching, Conservation Biology, University of Primorska, Koper"
+    },
+    {
+      "years": "2025",
+      "role": "Teaching assistant, 9th International Thematic School on Dynamic Energy Budget Theory, University of Crete"
+    },
+    {
+      "years": "2016–2019",
+      "role": "Leader of the reptile research group, Ecosystems of the Balkans and Research Camp for Biology Students (RTŠB)"
+    }
+  ],
+  "reviewing": [
+    "Journal of Animal Ecology",
+    "Methods in Ecology and Evolution",
+    "Herpetology Notes",
+    "Journal of Herpetology"
+  ],
+  "grants": [
+    {
+      "years": "2024–2026",
+      "title": "Slovenia–Croatia bilateral research cooperation (microplastic exposure in lizards), co-developed"
+    },
+    {
+      "years": "2025",
+      "title": "Travel grant, The Company of Biologists"
+    },
+    {
+      "years": "2025",
+      "title": "Erasmus+ mobility grant, University of Melbourne"
+    },
+    {
+      "years": "2024",
+      "title": "Commissioned project: inventory and conservation status of reptiles in Škocjan Caves Park"
+    },
+    {
+      "years": "2021–2024",
+      "title": "ARIS Young Researcher grant"
+    },
+    {
+      "years": "2019",
+      "title": "Erasmus+ mobility grant, Senckenberg, Dresden"
+    },
+    {
+      "years": "2018",
+      "title": "Erasmus+ mobility grant, University of Porto"
+    }
+  ],
+  "outreach": [
+    {
+      "year": "2026–",
+      "text": "Public engagement in the MSCA Citizens project RhythmOfLife, including European Researchers' Night"
+    },
+    {
+      "year": "2025",
+      "text": "Author of “Sharing a sunny spot: how microclimate shapes lizard coexistence along an altitudinal gradient”, Animal Ecology in Focus"
+    },
+    {
+      "year": "2024",
+      "text": "Interviewee in “Išče se progasti gož”, RTV Slovenija"
+    },
+    {
+      "year": "2024",
+      "text": "Public lecture on dry-stone walls as reptile habitat, StoneRich project (CIPRA), Bohinjska Bistrica"
+    },
+    {
+      "year": "2020",
+      "text": "Co-author of popular-science articles “Išče se skrivni velikan” and “Prepletena življenja krvnih parazitov in kuščaric”, Trdoživ"
+    },
+    {
+      "year": "2019",
+      "text": "Co-author of the handbook “Dvoživke in plazilci visokogorja Slovenije”"
+    }
+  ]
+}

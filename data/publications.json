@@ -1,0 +1,389 @@
+{
+  "_note": "Canonical publication list. Add verified entries to 'items' only. Inline *asterisks* italicize species names. 'type' is one of: article, preprint, report, data, thesis. Set 'selected': true to show on the homepage. Copy the shape from '_schema'; the schema object itself is never rendered. Entries below were taken from Urban's ORCID record (0000-0002-3490-9234) and checked against Crossref metadata on 2026-10-07; the Salamandra article has no DOI and was checked against the journal's contents page. 'year' is the year of the issue (print) where it differs from online-first. Two 2026 articles and the Zenodo records were added from the Google Scholar profile and checked against Crossref/Zenodo on 2026-10-07. Not yet listed: the 2026 corrigendum to the zebrafish article (10.1016/j.ecoenv.2026.120244) and the NIB report on reptiles in Škocjan Caves Park (details to confirm).",
+  "_schema": {
+    "id": "surname-year-keyword",
+    "type": "article",
+    "authors": [
+      "Surname, A.",
+      "Dajčman, U.",
+      "Surname, B."
+    ],
+    "year": 2026,
+    "title": "Exact article title with *Genus species* italicized",
+    "journal": "Journal name",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "10.xxxx/xxxxx",
+    "url": "",
+    "description": "",
+    "selected": false,
+    "projects": [
+      "lizard-competition"
+    ]
+  },
+  "items": [
+    {
+      "id": "oliveira-2026-deb-guidelines",
+      "type": "article",
+      "authors": [
+        "Oliveira, D. F.",
+        "Sulc, A.",
+        "Le Moan, E.",
+        "Donati, E.",
+        "Klagkou, E.",
+        "Lagunes, M.-J.",
+        "Dajčman, U.",
+        "Tan, T. Y."
+      ],
+      "year": 2026,
+      "title": "How to build Dynamic Energy Budget models: Practical guidelines for model development",
+      "journal": "Ecological Modelling",
+      "volume": "521",
+      "pages": "111703",
+      "doi": "10.1016/j.ecolmodel.2026.111703",
+      "selected": true
+    },
+    {
+      "id": "megia-palma-2026-insular-lizard-signals",
+      "type": "article",
+      "authors": [
+        "Megía-Palma, R.",
+        "Aguilar, P.",
+        "Žagar, A.",
+        "Pie, M. R.",
+        "Dajčman, U.",
+        "Merino, S.",
+        "Carretero, M. A.",
+        "Martín, J."
+      ],
+      "year": 2026,
+      "title": "Environmental determinants of interpopulation variation in chemical and visual signals in an insular lizard",
+      "journal": "Oikos",
+      "volume": "2026",
+      "issue": "8",
+      "pages": "e12150",
+      "doi": "10.1002/oik.12150"
+    },
+    {
+      "id": "kelly-2025-canary-scale-morphology",
+      "type": "article",
+      "authors": [
+        "Kelly, K.",
+        "Megía-Palma, R.",
+        "Dajčman, U.",
+        "Blázquez-Castro, S.",
+        "Pie, M. R.",
+        "Žagar, A."
+      ],
+      "year": 2025,
+      "title": "Environmental drivers of scale morphology in a Canary Island lizard across 3700 m of elevation",
+      "journal": "Journal of Zoology",
+      "volume": "327",
+      "issue": "4",
+      "pages": "398–409",
+      "doi": "10.1111/jzo.70072"
+    },
+    {
+      "id": "zagar-2025-scale-microstructure",
+      "type": "article",
+      "authors": [
+        "Žagar, A.",
+        "Konc, K.",
+        "Hočevar, M.",
+        "Dajčman, U.",
+        "Perc, V.",
+        "Megía-Palma, R.",
+        "Carretero, M. A.",
+        "Drobne, D.",
+        "Novak, S."
+      ],
+      "year": 2025,
+      "title": "The microstructure of scales varies in four lizard species",
+      "journal": "Amphibia-Reptilia",
+      "volume": "46",
+      "issue": "3",
+      "pages": "393–398",
+      "doi": "10.1163/15685381-bja10231"
+    },
+    {
+      "id": "dajcman-2025-microclimate-coexistence",
+      "type": "article",
+      "authors": [
+        "Dajčman, U.",
+        "Enriquez-Urzelai, U.",
+        "Žagar, A."
+      ],
+      "year": 2025,
+      "title": "Microclimate variability impacts the coexistence of highland and lowland ectotherms",
+      "journal": "Journal of Animal Ecology",
+      "volume": "94",
+      "issue": "5",
+      "pages": "999–1013",
+      "doi": "10.1111/1365-2656.70030",
+      "selected": true,
+      "projects": [
+        "lizard-competition"
+      ]
+    },
+    {
+      "id": "zagar-2024-subcellular-metabolism",
+      "type": "article",
+      "authors": [
+        "Žagar, A.",
+        "Dajčman, U.",
+        "Megía-Palma, R.",
+        "Simčič, T.",
+        "Barroso, F. M.",
+        "Baškiera, S.",
+        "Carretero, M. A."
+      ],
+      "year": 2024,
+      "title": "Analysis of subcellular energy metabolism in five Lacertidae lizards across varied environmental conditions",
+      "journal": "Comparative Biochemistry and Physiology Part A: Molecular & Integrative Physiology",
+      "volume": "297",
+      "pages": "111729",
+      "doi": "10.1016/j.cbpa.2024.111729",
+      "selected": true
+    },
+    {
+      "id": "aguilar-2024-fire-salamander-morphs",
+      "type": "article",
+      "authors": [
+        "Aguilar, P.",
+        "Pérez i de Lanuza, G.",
+        "Martínez-Gil, H.",
+        "Dajčman, U.",
+        "Simčič, T.",
+        "Pinho, C.",
+        "Žagar, A.",
+        "Megía-Palma, R."
+      ],
+      "year": 2024,
+      "title": "Color morphs of the fire salamander are discriminated at night by conspecifics and predators",
+      "journal": "Journal of Zoology",
+      "volume": "322",
+      "issue": "2",
+      "pages": "141–155",
+      "doi": "10.1111/jzo.13131"
+    },
+    {
+      "id": "zagar-2022-parasitemia-elevation",
+      "type": "article",
+      "authors": [
+        "Žagar, A.",
+        "Simčič, T.",
+        "Dajčman, U.",
+        "Megía-Palma, R."
+      ],
+      "year": 2022,
+      "title": "Parasitemia and elevation as predictors of hemoglobin concentration and antioxidant capacity in two sympatric lizards",
+      "journal": "Comparative Biochemistry and Physiology Part A: Molecular & Integrative Physiology",
+      "volume": "270",
+      "pages": "111233",
+      "doi": "10.1016/j.cbpa.2022.111233"
+    },
+    {
+      "id": "dajcman-2022-haemogregarines",
+      "type": "article",
+      "authors": [
+        "Dajčman, U.",
+        "Carretero, M. A.",
+        "Megía-Palma, R.",
+        "Perera, A.",
+        "Kostanjšek, R.",
+        "Žagar, A."
+      ],
+      "year": 2022,
+      "title": "Shared haemogregarine infections in competing lacertids",
+      "journal": "Parasitology",
+      "volume": "149",
+      "issue": "2",
+      "pages": "193–202",
+      "doi": "10.1017/S0031182021001645",
+      "selected": true
+    },
+    {
+      "id": "dajcman-2021-tortoise-forensics",
+      "type": "article",
+      "authors": [
+        "Dajčman, U.",
+        "Hofmeyr, M. D.",
+        "Ribeiro Anunciação, P.",
+        "Ihlow, F.",
+        "Vamberger, M."
+      ],
+      "year": 2021,
+      "title": "Tortoise forensics: conservation genetics of the leopard tortoise *Stigmochelys pardalis* in southern Africa",
+      "journal": "Salamandra",
+      "volume": "57",
+      "issue": "1",
+      "pages": "139–145",
+      "url": "https://salamandra-journal.com/index.php/contents/2021-vol-57/2017-dajcman-u-m-d-hofmeyr-p-ribeiro-anunciacao-f-ihlow-m-vamberger",
+      "selected": true
+    },
+    {
+      "id": "pekolj-2015-emys-kocevje",
+      "type": "article",
+      "authors": [
+        "Pekolj, A.",
+        "Rexhepi, B.",
+        "Urek, T.",
+        "Dajčman, U.",
+        "Drašler, K.",
+        "Žagar, A.",
+        "Lipovšek, G.",
+        "Govedič, M."
+      ],
+      "year": 2015,
+      "title": "First record of the European pond turtle *Emys orbicularis* (Linnaeus, 1758) near Kočevje, SE Slovenia",
+      "journal": "Natura Sloveniae",
+      "volume": "17",
+      "issue": "1",
+      "pages": "47–48",
+      "doi": "10.14720/ns.17.1.47-48"
+    },
+    {
+      "id": "perc-2026-microplastics-zebrafish",
+      "type": "article",
+      "authors": [
+        "Perc, V.",
+        "Wepener, V.",
+        "Dajčman, U.",
+        "Hočevar, M.",
+        "Drobne, D.",
+        "Novak, S."
+      ],
+      "year": 2026,
+      "title": "Size- and polymer-dependent effects of polystyrene and polyethylene micro- and nanoplastics in zebrafish (*Danio rerio*)",
+      "journal": "Ecotoxicology and Environmental Safety",
+      "volume": "317",
+      "pages": "120216",
+      "doi": "10.1016/j.ecoenv.2026.120216"
+    },
+    {
+      "id": "knez-2026-hierophis-gemonensis",
+      "type": "article",
+      "authors": [
+        "Knez, K.",
+        "Kastelic, M.",
+        "Frcovski, E.",
+        "Dajčman, U."
+      ],
+      "year": 2026,
+      "title": "Contribution to the knowledge of the distribution of the Balkan whip snake *Hierophis gemonensis* (Laurenti, 1768) in the inland Balkan Peninsula",
+      "journal": "Natura Sloveniae",
+      "volume": "28",
+      "issue": "1",
+      "pages": "49–51",
+      "doi": "10.14720/ns.26242"
+    },
+    {
+      "id": "zagar-2026-microplastics-faeces-data",
+      "type": "data",
+      "authors": [
+        "Žagar, A.",
+        "Novak, S.",
+        "Dajčman, U.",
+        "Perc, V.",
+        "Drobne, D.",
+        "Gojak, T.",
+        "Glogoški, M.",
+        "Lisičić, D."
+      ],
+      "year": 2026,
+      "title": "Experimental detection of microplastics in faeces of two European lizard species",
+      "journal": "Zenodo",
+      "doi": "10.5281/zenodo.18620997"
+    },
+    {
+      "id": "perc-2025-zebrafish-supp",
+      "type": "data",
+      "authors": [
+        "Perc, V.",
+        "Wepener, V.",
+        "Dajčman, U.",
+        "Hočevar, M.",
+        "Drobne, D.",
+        "Novak, S."
+      ],
+      "year": 2025,
+      "title": "Supplementary material: Size- and polymer-dependent effects of polystyrene and polyethylene micro- and nanoplastics in zebrafish (*Danio rerio*)",
+      "journal": "Zenodo",
+      "doi": "10.5281/zenodo.17522322"
+    },
+    {
+      "id": "dajcman-2024-microclimate-code",
+      "type": "data",
+      "authors": [
+        "Dajčman, U.",
+        "Enriquez-Urzelai, U.",
+        "Žagar, A."
+      ],
+      "year": 2024,
+      "title": "Supplementary data and code for “Microclimate variability impacts the coexistence of highland and lowland ectotherms”",
+      "journal": "Zenodo",
+      "doi": "10.5281/zenodo.14002378",
+      "code_url": "https://github.com/UrbanDajcman/Microclimate_availability_coexistence_paper_Dajcman_et_al",
+      "projects": [
+        "lizard-competition"
+      ]
+    },
+    {
+      "id": "dajcman-2026-phd-thesis",
+      "type": "thesis",
+      "authors": [
+        "Dajčman, U."
+      ],
+      "year": 2026,
+      "title": "Mechanistic understanding of ecological niche overlap in two sympatric lizard species",
+      "journal": "Doctoral dissertation, Biotechnical Faculty, University of Ljubljana",
+      "projects": [
+        "lizard-competition"
+      ]
+    },
+    {
+      "id": "dajcman-2020-msc-thesis",
+      "type": "thesis",
+      "authors": [
+        "Dajčman, U."
+      ],
+      "year": 2020,
+      "title": "Vpliv krvnih parazitov skupine Haemogregarina na medvrstne odnose kuščaric na primeru dveh tekmujočih vrst: *Iberolacerta horvathi* in *Podarcis muralis* v Sloveniji",
+      "journal": "Master's thesis, Biotechnical Faculty, University of Ljubljana"
+    },
+    {
+      "id": "simbula-2026-zootoca-parasites",
+      "type": "article",
+      "authors": [
+        "Simbula, G.",
+        "Dajčman, U.",
+        "Dakskobler, P.",
+        "Žagar, A."
+      ],
+      "year": 2026,
+      "title": "Blood parasite infections in the Carniolan lizard, *Zootoca carniolica* (Mayer et al., 2000)",
+      "journal": "Herpetology Notes",
+      "volume": "19",
+      "pages": "441–448"
+    },
+    {
+      "id": "megia-palma-2026-signals-data",
+      "type": "data",
+      "authors": [
+        "Megía-Palma, R.",
+        "Aguilar, P.",
+        "Žagar, A.",
+        "Pie, M. R.",
+        "Dajčman, U.",
+        "Merino, S.",
+        "Carretero, M. A.",
+        "Martín, J."
+      ],
+      "year": 2026,
+      "title": "Environmental determinants of interpopulation variation in chemical and visual signals in an insular lizard",
+      "journal": "Dryad",
+      "doi": "10.5061/dryad.vmcvdnd54"
+    }
+  ]
+}

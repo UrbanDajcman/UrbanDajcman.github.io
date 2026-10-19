@@ -1,0 +1,38 @@
+{
+  "_note": "Canonical project list. Values starting with 'TODO' are not rendered. Inline *asterisks* italicize species names. 'publications' lists ids from publications.json.",
+  "items": [
+    {
+      "slug": "lizard-competition",
+      "title": "Coexistence of *Iberolacerta horvathi* and *Podarcis muralis* under current and future climates",
+      "context": "PhD research, University of Ljubljana, Biotechnical Faculty; supervised by Anamarija Žagar, co-supervised by Urtzi Enriquez-Urzelai",
+      "status": "PhD awarded 13 January 2026, cum laude",
+      "summary": "My PhD research used mechanistic models, field ecology and physiological data to investigate coexistence between the lizards *Iberolacerta horvathi* and *Podarcis muralis* under current and future climatic conditions.",
+      "research_question": "TODO: provide the main research question(s) in one or two sentences",
+      "study_system": "*Iberolacerta horvathi* and *Podarcis muralis* (Lacertidae)",
+      "methods": [
+        "Dynamic Energy Budget models",
+        "Microclimate and biophysical modelling (NicheMapR)",
+        "Field ecology",
+        "Ecophysiological measurements",
+        "Molecular methods"
+      ],
+      "field_sites": "TODO: provide field site region(s)",
+      "collaborators": "Anamarija Žagar (supervisor), Urtzi Enriquez-Urzelai (co-supervisor)",
+      "institutions": [
+        "University of Ljubljana, Biotechnical Faculty"
+      ],
+      "funding": "TODO: provide funding source, if it should be listed",
+      "outputs": [],
+      "publications": [
+        "dajcman-2025-microclimate-coexistence"
+      ],
+      "themes": [
+        "mechanistic-ecology",
+        "species-interactions",
+        "thermal-ecology",
+        "field-ecophysiology"
+      ],
+      "thesis": "Mechanistic understanding of ecological niche overlap in two sympatric lizard species"
+    }
+  ]
+}

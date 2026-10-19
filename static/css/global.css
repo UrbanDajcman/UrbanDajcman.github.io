@@ -1,0 +1,1749 @@
+/* ==========================================================================
+   Design tokens — the only place colours, type and spacing are defined.
+   Layout follows a photo-led field-biology profile: full-width landscape
+   banner, a centred research statement, portrait beside the biography,
+   then a row of field photographs.
+   ========================================================================== */
+:root {
+  /* Colour: sampled from the pale limestone in the Iberolacerta horvathi hero
+     photograph (#e3e4e3, blue-grey in shade #d2d8d9) and its dark crevice.
+     Mid-century accents (mustard, slate-teal) are used only in motifs. */
+  --color-bg: #ffffff;          /* white page */
+  --color-tint: #f2f3f1;        /* pale limestone, for alternate sections */
+  --color-surface: #d7dcdc;     /* limestone in shade, behind loading images */
+  --color-text: #24282a;        /* slate charcoal */
+  --color-text-muted: #545a5c;  /* secondary text, ~6.6:1 on --color-bg */
+  --color-rule: #cdd2d1;        /* hairlines */
+  --color-accent: #2c5b68;      /* slate-teal links, ~7:1 on --color-bg */
+  --color-accent-strong: #1d414b;
+  --color-focus: #b4531f;       /* focus ring, distinct from the accent */
+  --color-dark: #22282a;        /* crevice shadow, dark band background */
+  --color-on-dark: #eceeec;     /* text on dark, ~14:1 */
+  --color-on-dark-muted: #b4bbbc;
+  --color-on-dark-link: #c9dbe0;
+  --color-mustard: #d4a24c;     /* mid-century accent, motifs only */
+  --color-highlight: #ecca86;   /* hero quote and contact type: the light mustard of the image tiles */
+  --color-ridge-1: #dfe2e0;     /* mountain ridges above the footer */
+  --color-ridge-2: #cfd4d3;
+  --color-ridge-3: #bcc3c3;
+
+  /* Type */
+  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  /* Jost: an open-source geometric sans modelled on Futura (mid-century modern). */
+  --font-sans: "Jost", "Futura", "Century Gothic", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --color-burnt: #a9512f;       /* mid-century accent, project blocks */
+  --color-slate: #3d4a4f;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: clamp(1.1875rem, 1.1rem + 0.35vw, 1.3125rem);
+  --text-xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-2xl: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-body: 1.6;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3.5rem;
+  --space-9: 6rem;
+
+  /* Layout */
+  --page-max: 84rem;
+  --measure: 46rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  overflow-wrap: break-word;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-3xl); letter-spacing: -0.01em; }
+h2 { font-size: var(--text-2xl); font-weight: 400; }
+h3 { font-size: var(--text-xl); line-height: var(--leading-snug); }
+
+p { margin: 0 0 var(--space-4); }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { color: var(--color-accent-strong); text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* On dark backgrounds the ring needs a light colour to keep 3:1 contrast (WCAG 2.4.11). */
+.dark :focus-visible, .hero :focus-visible { outline-color: var(--color-mustard); }
+
+/* Standalone links get at least a 24px target (WCAG 2.5.8); links inside sentences are exempt. */
+.more-link a, .pub__links a, .link-list a, .site-nav a, .site-title, .contact address a, .site-footer a {
+  display: inline-block;
+  min-height: 24px;
+  padding-block: 2px;
+}
+.site-nav a { min-width: 24px; text-align: center; }
+
+i.taxon, em.taxon { font-style: italic; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100%;
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 600;
+}
+.skip-link:focus { top: var(--space-4); color: var(--color-bg); }
+
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ==========================================================================
+   Header and navigation
+   ========================================================================== */
+.site-header { background: var(--color-bg); }
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  padding-block: var(--space-4);
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.site-title:hover { color: var(--color-text); text-decoration: underline; }
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+}
+@media (min-width: 40rem) {
+  .site-nav ul { gap: 0 var(--space-5); }
+}
+.site-nav a {
+  display: inline-block;
+  padding-block: var(--space-2);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: var(--color-rule); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--color-accent); }
+
+/* ==========================================================================
+   Hero (home): full-screen portrait, the name in large stacked capitals.
+   The hero stays fixed while .page-over scrolls up over it.
+   ========================================================================== */
+.site-header--overlay {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  background: transparent;
+}
+.site-header--overlay .site-title,
+.site-header--overlay .site-nav a { color: #fff; text-shadow: 0 1px 8px rgb(0 0 0 / 0.35); }
+.site-header--overlay .site-nav a:hover { border-bottom-color: rgb(255 255 255 / 0.6); }
+
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  height: 100vh;
+  height: 100svh;
+  min-height: 34rem;
+  background: var(--color-dark);
+  color: #fff;
+  overflow: hidden;
+}
+.hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 32%;
+}
+.hero__video { opacity: 0; transition: opacity 600ms ease; }
+.hero--playing .hero__video { opacity: 1; }
+/* Scrims keep the type legible over the photograph. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(18 22 24 / 0.55) 0%, rgb(18 22 24 / 0.15) 55%, rgb(18 22 24 / 0) 75%),
+    linear-gradient(to top, rgb(18 22 24 / 0.7) 0%, rgb(18 22 24 / 0) 55%),
+    linear-gradient(to bottom, rgb(18 22 24 / 0.45) 0%, rgb(18 22 24 / 0) 18%);
+}
+.hero__inner { position: relative; z-index: 1; padding-block: var(--space-8) var(--space-7); }
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 0.8rem + 5.6vw, 6.25rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  margin: 0 0 var(--space-5);
+}
+.hero__name span { display: block; }
+/* Room for the caron on Č so it does not touch the line above. */
+.hero__name span + span { margin-top: 0.1em; }
+.hero__name span + span { padding-left: 0.5em; }
+@media (max-width: 30rem) { .hero__name span + span { padding-left: 0.3em; } }
+/* Wide screens: the portrait fills the right of the screen on slate; the name overlaps both. */
+@media (min-width: 48rem) {
+  .hero__media { left: auto; width: 58%; object-position: 55% 30%; }
+  .hero::after {
+    background:
+      linear-gradient(90deg, var(--color-dark) 42%, rgb(34 40 42 / 0.55) 52%, rgb(34 40 42 / 0) 66%),
+      linear-gradient(to top, rgb(18 22 24 / 0.55) 0%, rgb(18 22 24 / 0) 40%),
+      linear-gradient(to bottom, rgb(18 22 24 / 0.35) 0%, rgb(18 22 24 / 0) 16%);
+  }
+}
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  max-width: 30ch;
+  margin-bottom: var(--space-3);
+}
+.hero__affiliation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: rgb(255 255 255 / 0.9);
+}
+.hero__affiliation p { margin: 0; padding-left: var(--space-4); border-left: 1px solid rgb(255 255 255 / 0.4); }
+.hero__nib { width: 5.5rem; color: #fff; }
+/* Name with the NIB block to its right, aligned with the last line of the name. */
+.hero__head { margin-bottom: clamp(2.5rem, 1rem + 5vh, 5.5rem); }
+@media (min-width: 48rem) { .hero__inner { padding-bottom: clamp(3rem, 12vh, 9rem); } }
+.hero__head .hero__name { margin: 0; }
+.hero__head .hero__affiliation { text-shadow: 0 1px 6px rgb(0 0 0 / 0.6); filter: drop-shadow(0 1px 4px rgb(0 0 0 / 0.35)); margin: 0 0 0.6em; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.hero__head .hero__affiliation p { padding-left: 0; border-left: 0; border-top: 1px solid rgb(255 255 255 / 0.4); padding-top: var(--space-2); max-width: 15rem; }
+
+/* Content after the hero: opaque, scrolls up over it. */
+.page-over { position: relative; z-index: 1; background-color: var(--color-bg); }
+/* NIB logo: a mask filled with the current text colour, so it matches the site palette */
+.nib-mark {
+  display: inline-block;
+  flex: none;
+  aspect-ratio: 390 / 120;
+  background-color: currentColor;
+  -webkit-mask: url("/images/nib-mark.png") center / contain no-repeat;
+  mask: url("/images/nib-mark.png") center / contain no-repeat;
+}
+.contact__nib { width: 5rem; color: var(--color-text); margin-bottom: var(--space-3); }
+.hero__credit {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--space-3);
+  z-index: 1;
+  margin: 0;
+  font-size: var(--text-xs);
+  color: rgb(255 255 255 / 0.8);
+}
+.hero__credit a { color: inherit; }
+.hero__toggle {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--gutter);
+  z-index: 1;
+  font: inherit;
+  font-size: var(--text-xs);
+  color: #fff;
+  background: rgb(18 22 24 / 0.55);
+  border: 1px solid rgb(255 255 255 / 0.5);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+@media (max-width: 40rem) {
+  .hero__credit { position: relative; right: auto; bottom: auto; padding: 0 var(--gutter) var(--space-3); }
+}
+
+/* Research statement: large light serif beside a photograph */
+.statement {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  padding-block: var(--space-7);
+}
+@media (min-width: 56rem) {
+  .statement { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-7); }
+}
+.statement__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+/* Duotone, like a two-colour mid-century print: shadows in slate, highlights in mustard. */
+.duotone { position: relative; display: block; background: var(--color-mustard); isolation: isolate; }
+.duotone img { filter: grayscale(1) contrast(1.2) brightness(1.05); mix-blend-mode: multiply; }
+.duotone::after { content: ""; position: absolute; inset: 0; background: var(--color-slate); mix-blend-mode: lighten; pointer-events: none; }
+.statement__media figcaption { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted); }
+.statement__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.625rem);
+  font-weight: 300;
+  line-height: 1.25;
+  max-width: 30ch;
+  margin-bottom: var(--space-5);
+}
+.statement__body {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.65;
+  max-width: 48rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Research themes: alternating image and text rows
+   ========================================================================== */
+.theme-rows { display: grid; gap: var(--space-6); }
+.theme-row { display: grid; gap: var(--space-4) var(--space-7); align-items: center; }
+@media (min-width: 56rem) {
+  .theme-row { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .theme-row:nth-child(even) { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  .theme-row:nth-child(even) .theme-row__media { order: 2; }
+}
+.theme-row__media .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+
+
+.theme-row__pair img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.theme-row__text h3 {
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  margin-bottom: var(--space-4);
+}
+.theme-row__text p { font-family: var(--font-serif); font-size: var(--text-lg); line-height: 1.65; max-width: 42rem; }
+
+/* Full-bleed photograph between sections */
+.band { position: relative; background: var(--color-dark); }
+.band__img { width: 100%; height: clamp(16rem, 48vw, 40rem); object-fit: cover; }
+.band__caption {
+  margin: 0;
+  padding-block: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-on-dark-muted);
+}
+.band__caption a { color: var(--color-on-dark-link); }
+
+/* Section tints */
+.tint { background: var(--color-tint); max-width: none; }
+.section.tint { padding-inline: max(var(--gutter), calc((100% - var(--page-max)) / 2 + var(--gutter))); }
+
+/* Dark band with a photo mosaic */
+.dark { background: var(--color-dark); color: var(--color-on-dark); }
+.dark .section + .section, .dark + .section { border-top: 0; }
+.dark a { color: var(--color-on-dark-link); }
+.dark h2 { color: var(--color-on-dark); }
+.dark figcaption { color: var(--color-on-dark-muted); }
+/* Mosaic: one large photo and five smaller ones, edge to edge */
+.mosaic {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.mosaic .photo { position: relative; }
+.mosaic img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.mosaic .photo figcaption {
+  margin: 0;
+  position: absolute; left: var(--space-3); bottom: var(--space-2);
+  color: #fff; font-size: var(--text-xs); text-shadow: 0 1px 3px rgb(0 0 0 / 0.7);
+}
+@media (min-width: 48rem) {
+  .mosaic { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mosaic .photo:first-child { grid-column: span 2; grid-row: span 2; }
+}
+.mosaic .photo:nth-child(4) img, .mosaic .photo:nth-child(5) img, .mosaic .photo:nth-child(6) img { object-position: 50% 30%; }
+
+/* Selected publications in two columns on wide screens */
+@media (min-width: 60rem) {
+  .pubs-grid .pub-list { max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-7); }
+  .pubs-grid .pub:first-child, .pubs-grid .pub:nth-child(2) { padding-top: 0; }
+}
+
+/* ==========================================================================
+   Collaboration map
+   ========================================================================== */
+.collab { display: grid; gap: var(--space-5); }
+.collab__map {
+  position: relative;
+  overflow: hidden;
+  margin-inline: calc(var(--gutter) * -1);
+  border-block: 1px solid rgb(236 238 236 / 0.12);
+}
+.collab__svg {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  display: block;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+.collab__svg.is-dragging { cursor: grabbing; }
+@media (max-width: 40rem) { .collab__svg { aspect-ratio: 4 / 3; } }
+.collab__land { opacity: 0.11; }
+.collab__arc { vector-effect: non-scaling-stroke; }
+.collab__controls {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--space-3);
+  display: flex;
+  gap: var(--space-1);
+}
+.collab__controls button {
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0 var(--space-3);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
+  background: rgb(34 40 42 / 0.85);
+  border: 1px solid rgb(236 238 236 / 0.35);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.collab__controls button:hover { border-color: var(--color-mustard); color: #fff; }
+.collab__arc {
+  fill: none;
+  stroke: #a9c7cf;
+  stroke-linecap: round;
+  opacity: 0.55;
+  transition: opacity 160ms ease, stroke 160ms ease;
+}
+.collab__dot { fill: #d8e7ea; transition: fill 160ms ease; }
+.collab__halo { fill: #9fc3cc; opacity: 0; transition: opacity 160ms ease; }
+.collab__node { cursor: pointer; }
+/* Font size and position are set as attributes by the script so labels keep their
+   on-screen size at every zoom level; do not set font-size here. */
+.collab__label {
+  font-family: var(--font-sans);
+  fill: var(--color-on-dark);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+.collab__label--home { opacity: 1; font-weight: 600; }
+.collab__home-dot { fill: var(--color-mustard); }
+.collab__home-ring { fill: none; stroke: var(--color-mustard); stroke-width: 1.5; opacity: 0.6; }
+
+.collab.is-highlighting .collab__arc { opacity: 0.12; }
+.collab.is-highlighting .collab__node .collab__dot { fill: rgb(216 231 234 / 0.35); }
+.collab .collab__arc.is-active { opacity: 1; stroke: var(--color-mustard); }
+.collab .collab__node.is-active .collab__dot { fill: var(--color-mustard); }
+.collab .collab__node.is-active .collab__halo { opacity: 0.25; }
+.collab .collab__node.is-active .collab__label { opacity: 1; }
+
+.collab__summary { font-size: var(--text-sm); color: var(--color-on-dark-muted); margin-bottom: var(--space-3); }
+.collab__list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  column-gap: var(--space-5);
+  border-top: 1px solid rgb(236 238 236 / 0.14);
+}
+.collab__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  gap: 0 var(--space-3);
+  padding: var(--space-2) var(--space-2);
+  border-bottom: 1px solid rgb(236 238 236 / 0.14);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.collab__item:focus-visible { outline-offset: -3px; }
+.collab__item.is-active { background: rgb(212 162 76 / 0.16); }
+.collab__place { font-weight: 600; color: var(--color-on-dark); }
+.collab__count { color: var(--color-on-dark-muted); font-size: var(--text-xs); white-space: nowrap; }
+.collab__inst { grid-column: 1 / -1; font-size: var(--text-xs); color: var(--color-on-dark-muted); }
+
+.collab__home-note { font-size: var(--text-xs); color: var(--color-on-dark-muted); margin-top: var(--space-3); }
+
+/* Project feature: text beside its metadata on wide screens */
+@media (min-width: 60rem) {
+  .feature { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 0 var(--space-7); align-items: start; }
+  .feature > h2, .feature > h3, .feature > .prose { grid-column: 1; }
+  .feature > .meta-list { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; padding-left: var(--space-5); border-left: 1px solid var(--color-rule); }
+  .feature > .feature__sub, .feature > .pub-list { grid-column: 1 / -1; }
+}
+
+/* About block with contact on the home page */
+.about__contact-h { margin-top: var(--space-6); }
+
+/* Image credits */
+.small h2 { font-size: var(--text-lg); }
+.credits { margin: 0; padding-left: 1.1em; font-size: var(--text-sm); color: var(--color-text-muted); columns: 2 22rem; }
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+main { display: block; }
+
+.section { padding-block: var(--space-7); }
+@media (min-width: 45rem) {
+  .section { padding-block: var(--space-8); }
+}
+.section + .section { border-top: 1px solid var(--color-rule); }
+.statement + .section { border-top: 1px solid var(--color-rule); }
+.band + .section, .tint + *, * + .tint, .dark + .section { border-top: 0; }
+
+.prose { max-width: var(--measure); }
+.prose p { font-family: var(--font-serif); font-size: var(--text-lg); line-height: 1.65; }
+
+.more-link { font-size: var(--text-sm); font-weight: 600; margin-top: var(--space-5); }
+.note { color: var(--color-text-muted); font-size: var(--text-sm); }
+
+/* Page heading on inner pages */
+.page-head { padding-block: var(--space-8) var(--space-4); }
+.page-head h1 { font-size: var(--text-2xl); }
+
+/* ==========================================================================
+   About: portrait beside biography
+   ========================================================================== */
+.about { display: grid; gap: var(--space-6); align-items: start; }
+@media (min-width: 48rem) {
+  .about { grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr); gap: var(--space-7); }
+}
+.about__portrait { margin: 0; }
+.about__portrait img { width: 100%; max-height: 34rem; object-fit: cover; object-position: 50% 30%; }
+@media (max-width: 47.99rem) {
+  .about__portrait img { max-height: 26rem; }
+}
+.about__portrait figcaption, .photo figcaption {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   Photographs
+   ========================================================================== */
+.photo { margin: 0; }
+.photo img { width: 100%; height: auto; background: var(--color-surface); }
+.credit { overflow-wrap: anywhere; }
+
+/* Three portrait photographs in a row; all are pre-cropped to 2:3. */
+.photo-row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+.photo-row img { aspect-ratio: 2 / 3; object-fit: cover; }
+
+/* About page gallery: two columns, natural aspect ratios. */
+.gallery {
+  columns: 1;
+  column-gap: var(--space-5);
+}
+@media (min-width: 40rem) { .gallery { columns: 2; } }
+.gallery .photo { break-inside: avoid; margin-bottom: var(--space-5); }
+
+/* ==========================================================================
+   Research themes: two columns of short prose, no cards
+   ========================================================================== */
+.themes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-6) var(--space-7);
+}
+@media (min-width: 45rem) {
+  .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.theme { padding-top: var(--space-4); border-top: 1px solid var(--color-text); }
+.theme h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.theme p { max-width: 38rem; }
+
+/* ==========================================================================
+   Project feature
+   ========================================================================== */
+.feature h2, .feature h3 { max-width: 32ch; }
+.feature h3 { font-size: var(--text-xl); }
+.feature__sub { font-size: var(--text-lg); margin-top: var(--space-6); }
+.meta-list {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-2) var(--space-5);
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-sm);
+  max-width: 48rem;
+}
+.meta-list dt { font-weight: 600; color: var(--color-text-muted); }
+.meta-list dd { margin: 0; }
+@media (max-width: 30rem) {
+  .meta-list { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .meta-list dd { margin-bottom: var(--space-3); }
+}
+
+/* ==========================================================================
+   Publications
+   ========================================================================== */
+.pub-list { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.pub {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-rule);
+}
+.pub:first-child { padding-top: 0; }
+.pub__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  margin: 0 0 var(--space-1);
+}
+/* Title links read as titles; the underline appears on hover and focus. */
+.pub__title a { color: var(--color-text); text-decoration: none; }
+.pub__title a:hover, .pub__title a:focus-visible { color: var(--color-accent); text-decoration: underline; text-decoration-thickness: 1px; }
+.dark .pub__title a { color: var(--color-on-dark); }
+.pub__authors, .pub__venue { font-size: var(--text-sm); margin: 0; }
+.pub__authors .self { font-weight: 600; text-decoration: underline; text-decoration-color: var(--color-rule); text-underline-offset: 0.2em; }
+.pub__venue { color: var(--color-text-muted); }
+.pub__venue cite { font-style: italic; }
+.pub__links { font-size: var(--text-sm); margin-top: var(--space-1); }
+
+.empty-state {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  border-left: 3px solid var(--color-rule);
+  padding-left: var(--space-3);
+  max-width: var(--measure);
+}
+
+/* ==========================================================================
+   Contact block and footer
+   ========================================================================== */
+.contact { display: grid; gap: var(--space-6); }
+@media (min-width: 45rem) {
+  .contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.contact address { font-style: normal; }
+.link-list { list-style: none; margin: 0; padding: 0; }
+.link-list li { padding-block: var(--space-1); }
+
+/* ==========================================================================
+   Background motifs: very soft hints at the research themes, mid-century style.
+   Reptile scales in the page margins, mountain ridges above the footer and
+   two overlapping circles (niche overlap) behind the statement photograph.
+   ========================================================================== */
+/* Scales only in the margins: a page-coloured band covers the pattern over the text column. */
+@media (min-width: 80rem) {
+  body, .page-over {
+    background-image:
+      linear-gradient(90deg,
+        rgb(255 255 255 / 0) 0,
+        var(--color-bg) calc(50% - var(--page-max) / 2 + 2rem),
+        var(--color-bg) calc(50% + var(--page-max) / 2 - 2rem),
+        rgb(255 255 255 / 0) 100%),
+      url("/images/motif-scales.svg");
+  }
+}
+.ridges { display: block; width: 100%; height: clamp(3.5rem, 8vw, 7.5rem); margin-top: var(--space-6); }
+.ridges__far { fill: var(--color-ridge-1); }
+.ridges__mid { fill: var(--color-ridge-2); }
+.ridges__near { fill: var(--color-ridge-3); }
+
+.statement { overflow-x: clip; }
+.statement__media { position: relative; isolation: isolate; }
+.statement__media::before, .statement__media::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.statement__media::before { top: -9%; right: -7%; background: var(--color-mustard); opacity: 0.28; }
+.statement__media::after { bottom: -11%; left: -8%; background: var(--color-accent); opacity: 0.16; }
+@media (max-width: 40rem) {
+  .statement__media::before { right: -3%; }
+  .statement__media::after { left: -3%; }
+}
+
+.site-footer {
+  background: var(--color-ridge-3);
+  color: var(--color-text);
+  padding-block: var(--space-6);
+  font-size: var(--text-sm);
+}
+.site-footer a { color: var(--color-accent-strong); }
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+}
+.site-footer p { margin: 0; }
+.site-footer ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4);
+}
+
+/* CV and dated lists */
+.cv-list { list-style: none; margin: 0; padding: 0; max-width: 64rem; }
+.cv-list > li {
+  display: grid;
+  gap: var(--space-1) var(--space-5);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-rule);
+}
+@media (min-width: 40rem) {
+  .cv-list > li { grid-template-columns: 8rem minmax(0, 1fr); }
+}
+.cv-list .when { font-variant-numeric: tabular-nums; color: var(--color-text-muted); font-size: var(--text-sm); }
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  a, .site-nav a { transition: color 120ms ease, border-color 120ms ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .site-header, .site-footer, .skip-link, .band, .hero__media, .hero__toggle { display: none; }
+  .hero { min-height: 0; color: #000; background: none; }
+  .hero::after { display: none; }
+  .dark { background: none; color: #000; }
+  body { background: #fff; color: #000; }
+}
+
+/* Collaboration pop-ups: joint papers for one place (list entry and map point) */
+.collab__item { position: relative; }
+.collab__pop {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: calc(100% - 2px);
+  left: 0;
+  right: 0;
+  min-width: min(20rem, 88vw);
+  padding: var(--space-3) var(--space-4);
+  background: #2f383b;
+  border: 1px solid rgb(236 238 236 / 0.22);
+  border-top: 3px solid var(--color-mustard);
+}
+.collab__item:hover .collab__pop, .collab__item:focus-within .collab__pop { display: block; }
+.collab__pop-h, .collab__mappop .collab__pop-h {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-on-dark-muted);
+}
+.collab__pop ul, .collab__mappop ul { list-style: none; margin: 0; padding: 0; }
+.collab__pop li, .collab__mappop li { padding-block: var(--space-1); border-top: 1px solid rgb(236 238 236 / 0.1); }
+.collab__pop li:first-child, .collab__mappop li:first-child { border-top: 0; }
+.collab__ptitle { display: block; font-family: var(--font-serif); font-size: var(--text-sm); line-height: 1.35; }
+.collab__ptitle a { color: var(--color-on-dark); text-decoration-color: rgb(236 238 236 / 0.35); }
+.collab__ptitle a:hover { color: #fff; text-decoration-color: var(--color-mustard); }
+.collab__pmeta { display: block; font-size: var(--text-xs); color: var(--color-on-dark-muted); }
+.collab__mappop {
+  position: absolute;
+  z-index: 5;
+  width: min(22rem, calc(100% - 16px));
+  max-height: calc(100% - 16px);
+  overflow-y: auto;
+  padding: var(--space-3) var(--space-4);
+  background: rgb(47 56 59 / 0.97);
+  border: 1px solid rgb(236 238 236 / 0.22);
+  border-top: 3px solid var(--color-mustard);
+}
+
+/* ==========================================================================
+   Projects: acronyms as flat mid-century colour blocks
+   ========================================================================== */
+.projects { list-style: none; margin: var(--space-5) 0 0; padding: 0; display: grid; gap: var(--space-4); max-width: 60rem; }
+.project { display: grid; gap: var(--space-3) var(--space-5); align-items: start; padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-rule); }
+@media (min-width: 40rem) { .project { grid-template-columns: 14rem minmax(0, 1fr); } }
+.project__tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 5.5rem;
+  padding: var(--space-3) var(--space-4);
+  color: #fff;
+}
+.project__acronym { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); letter-spacing: 0.03em; overflow-wrap: normal; white-space: nowrap; }
+.project__years { font-family: var(--font-display); font-size: var(--text-sm); opacity: 0.9; }
+.project__title { font-family: var(--font-serif); font-size: var(--text-lg); font-weight: 600; margin: 0 0 var(--space-1); }
+.project__meta { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0 0 var(--space-2); }
+.project__summary { font-family: var(--font-serif); margin: 0; max-width: 40rem; }
+.project--c0 .project__tag, .project-chip.project--c0 a { background: var(--color-mustard); color: var(--color-text); }
+.project--c1 .project__tag, .project-chip.project--c1 a { background: var(--color-accent); color: #fff; }
+.project--c2 .project__tag, .project-chip.project--c2 a { background: var(--color-burnt); color: #fff; }
+.project--c3 .project__tag, .project-chip.project--c3 a { background: var(--color-slate); color: #fff; }
+
+.project-strip { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.project-chip a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 9rem;
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+}
+.project-chip a:hover { filter: brightness(1.08); }
+.project-chip .project__acronym { font-size: var(--text-base); }
+.project-chip .project__years { font-size: var(--text-xs); }
+
+/* Hero text sits close to the left edge so it covers less of the portrait. */
+@media (min-width: 48rem) {
+  .hero__inner { max-width: none; margin: 0; padding-left: clamp(1.5rem, 4.5vw, 4.5rem); padding-right: 0; }
+  .site-header--overlay .site-header__inner { max-width: none; padding-inline: clamp(1.5rem, 4.5vw, 4.5rem); }
+  .hero__media { width: 60%; }
+}
+.hero__quote { margin: 0 0 var(--space-4); max-width: 42rem; color: var(--color-highlight); }
+.hero__quote blockquote { margin: 0; position: relative; }
+.hero__quote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 0.85rem + 0.35vw, 1.125rem);
+  line-height: 1.5;
+}
+.hero__quote figcaption {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.hero__quote figcaption::before { content: "\2014\00a0"; }
+@media (max-height: 760px) and (min-width: 48rem) {
+  .hero__quote p { font-size: 0.9rem; line-height: 1.4; }
+  .hero__name { font-size: clamp(2.4rem, 0.8rem + 4.6vw, 5.25rem); }
+}
+
+/* ==========================================================================
+   Reptile strip: full-width row of duotone study species after the hero
+   ========================================================================== */
+.reptiles { background: var(--color-bg); display: grid; gap: 3px; }
+/* Equal 4:3 frames in a grid so colours form an exact checkerboard. Source photos are all
+   4:3 or close to it (the snake and the I. horvathi log photo are pre-cropped to 4:3 with the
+   whole animal in frame), so cover only trims thin edges, never the animal. */
+.reptiles__row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; }
+.reptile { margin: 0; position: relative; min-width: 0; }
+.reptile picture { display: block; aspect-ratio: 4 / 3; background: var(--tone-light); }
+.reptile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reptile figcaption {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 1;
+  padding: 2px var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-on-dark);
+  background: rgb(34 40 42 / 0.82);
+}
+/* Two duotone palettes: mustard, and limestone grey sampled from the rock photographs. */
+
+/* Lighter mustard and slate than the base duotone, so the animals read clearly. */
+.tone-mustard { --tone-light: #ecca86; --tone-dark: #4a585d; }
+
+.tone-stone { --tone-light: #d2d8d9; --tone-dark: #34403f; }
+/* Phones: two photos per line; the checkerboard is recomputed for that layout. */
+@media (max-width: 47.99rem) {
+  .reptiles__row { display: contents; }
+  .reptiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; }
+  .m-tone-mustard { --tone-light: #ecca86; --tone-dark: #4a585d; }
+  .m-tone-stone { --tone-light: #d2d8d9; --tone-dark: #34403f; }
+  .reptile figcaption { left: var(--space-2); bottom: var(--space-2); font-size: var(--text-xs); }
+}
+
+/* Species pair in the research themes: natural proportions, equal height. */
+.theme-row__pair { display: flex; gap: var(--space-3); }
+.theme-row__pair .photo { flex: var(--ratio) 1 0; min-width: 0; }
+.theme-row__media .theme-row__pair .photo img { aspect-ratio: auto; height: auto; }
+/* ==========================================================================
+   About collage: round, lightly overlapping photographs
+   ========================================================================== */
+@media (min-width: 48rem) {
+  .about { grid-template-columns: minmax(18rem, 30rem) minmax(0, 1fr); }
+}
+.collage { position: relative; width: 100%; aspect-ratio: 1 / 0.92; }
+.collage__item {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--color-bg);
+  background: var(--color-surface);
+}
+.collage__item img { width: 100%; height: 100%; object-fit: cover; }
+.collage__item--0 { width: 52%; left: 4%;  top: 0;   z-index: 2; }
+.collage__item--1 { width: 42%; left: 54%; top: 6%;  z-index: 1; }
+.collage__item--2 { width: 38%; left: 0;   top: 52%; z-index: 1; }
+.collage__item--3 { width: 40%; left: 33%; top: 47%; z-index: 3; }
+.collage__item--4 { width: 30%; left: 68%; top: 56%; z-index: 2; }
+
+/* Closing full-screen photograph (net in the wet meadow); same pinned scroll as the hero. */
+.hero--closing { min-height: 0; }
+.hero--closing::after { background: linear-gradient(to bottom, rgb(18 22 24 / 0.18), rgb(18 22 24 / 0) 30%); }
+.hero--closing .hero__media { width: 100%; left: 0; object-position: 66% 40%; }
+
+/* Header brand: wordmark (home link) with the NIB logo beside it. */
+.site-brand { display: flex; align-items: center; gap: var(--space-4); }
+.site-brand__inst { display: inline-flex; align-items: center; min-height: 24px; padding-left: var(--space-4); border-left: 1px solid currentColor; color: inherit; }
+.site-header .site-brand__inst { color: var(--color-text); }
+.site-header--overlay .site-brand__inst { color: #fff; border-left-color: rgb(255 255 255 / 0.5); }
+.site-brand__nib { width: 3.6rem; }
+.site-brand__inst:hover { opacity: 0.8; }
+
+/* Contact over the closing photograph, in the hero's light mustard on a slate panel. */
+.hero--closing { align-items: end; }
+.closing {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 clamp(1.5rem, 4vw, 4rem) clamp(1rem, 4.5vw, 4.5rem);
+  padding: var(--space-6) var(--space-7) var(--space-6) var(--space-6);
+  max-width: 30rem;
+  background: rgb(34 40 42 / 0.88);
+  border-top: 4px solid var(--color-highlight);
+  color: var(--color-highlight);
+}
+.closing__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.5rem + 3vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  margin: 0 0 var(--space-4);
+}
+.closing__nib { width: 5rem; color: var(--color-highlight); margin-bottom: var(--space-3); }
+.closing__address { font-style: normal; font-size: var(--text-sm); line-height: 1.5; margin-bottom: var(--space-4); }
+.closing a { color: var(--color-highlight); text-decoration-color: rgb(236 202 134 / 0.5); }
+.closing a:hover { color: #ff8a5c; text-decoration-color: currentColor; }
+.closing__links {
+  list-style: none; margin: 0; padding: var(--space-3) 0 0;
+  display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5);
+  border-top: 1px solid rgb(236 202 134 / 0.35);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  letter-spacing: 0.02em;
+}
+.closing__links a { display: inline-block; min-height: 24px; padding-block: 2px; }
+.closing :focus-visible { outline-color: var(--color-mustard); }
+
+/* Slim footer: a single line. */
+.site-footer { padding-block: var(--space-3); font-size: var(--text-xs); background: var(--color-dark); color: var(--color-on-dark-muted); }
+.site-footer__inner { justify-content: flex-start; }
+
+/* Habitat row: full-width landscapes, one shared height. */
+.habitats { display: flex; gap: 3px; height: clamp(14rem, 30vw, 26rem); }
+.habitat { margin: 0; flex: var(--ratio) 1 0; min-width: 0; }
+.habitat img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 47.99rem) {
+  .habitats { flex-wrap: wrap; height: auto; }
+  .habitat { flex: 1 1 calc(50% - 2px); height: 12rem; }
+  .habitat:last-child { flex-basis: 100%; }
+}
+
+/* Closing panel: highlight colour, full height of the photograph, with silhouettes in a deeper red. */
+.hero--closing { align-items: stretch; }
+.closing {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: min(32rem, 100%);
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: var(--space-7) clamp(1.5rem, 3vw, 3rem) clamp(2rem, 5vh, 4rem);
+  background: var(--color-highlight);
+  border-top: 0;
+  color: var(--color-dark);
+  overflow: hidden;
+}
+.closing__title { color: var(--color-dark); }
+.closing__nib { color: var(--color-dark); }
+.closing a { color: var(--color-dark); text-decoration-color: rgb(34 40 42 / 0.45); }
+.closing a:hover { color: #000; text-decoration-color: currentColor; }
+.closing__links { border-top-color: rgb(34 40 42 / 0.3); }
+.closing :focus-visible { outline-color: var(--color-dark); }
+@media (max-width: 47.99rem) {
+  .hero--closing .closing { width: 100%; }
+}
+
+/* ==========================================================================
+   Research themes: Prairie School grid (Frank Lloyd Wright) — strong horizontals,
+   double rules, small square accents, small photographs set into the text.
+   ========================================================================== */
+.theme-grid {
+  display: grid;
+  border-bottom: 1px solid var(--color-rule);
+}
+@media (min-width: 60rem) { .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.theme-card {
+  display: grid;
+  grid-template-columns: minmax(6rem, 9.5rem) minmax(0, 1fr);
+  gap: var(--space-4) var(--space-5);
+  align-items: start;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+@media (min-width: 60rem) {
+  .theme-card:nth-child(odd) { padding-right: var(--space-6); border-right: 1px solid var(--color-rule); }
+  .theme-card:nth-child(even) { padding-left: var(--space-6); }
+  .theme-card:nth-last-child(-n + 2) { border-bottom: 0; }
+}
+.theme-card__media { display: grid; gap: var(--space-2); }
+.theme-card__img img { width: 100%; height: auto; display: block; }
+.theme-card__text h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+.theme-card__text h3::before { content: ""; flex: none; width: 0.55em; height: 0.55em; background: var(--color-burnt); }
+.theme-card:nth-child(4n + 2) h3::before, .theme-card:nth-child(4n + 3) h3::before { background: var(--color-accent); }
+.theme-card__text p { font-family: var(--font-serif); font-size: var(--text-base); line-height: 1.6; margin: 0; }
+
+/* ==========================================================================
+   Projects: written out, acronym in colour, equal-height columns across the width
+   ========================================================================== */
+.projects {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0;
+}
+.projects--strip { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.projects .project {
+  display: block;
+  padding: var(--space-4) var(--space-5) var(--space-5) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.projects .project + .project { padding-left: var(--space-5); border-left: 1px solid var(--color-rule); }
+.projects .project__acronym {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.projects .project__years { margin: 0 0 var(--space-3); font-family: var(--font-display); font-size: var(--text-sm); color: var(--color-text-muted); }
+.projects .project__title { font-family: var(--font-serif); font-size: var(--text-base); font-weight: 600; line-height: 1.35; margin: 0 0 var(--space-2); }
+.projects .project__meta { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0 0 var(--space-2); }
+.projects .project__summary { font-family: var(--font-serif); font-size: var(--text-sm); margin: 0; }
+/* Colour on the acronym text only (text-safe shades of the mid-century palette). */
+.projects .project--c0 .project__acronym { color: #946411; }
+.projects .project--c1 .project__acronym { color: var(--color-accent); }
+.projects .project--c2 .project__acronym { color: var(--color-burnt); }
+.projects .project--c3 .project__acronym { color: var(--color-slate); }
+
+/* CV detail lists and the home page "Now" block */
+.cv-details { margin: var(--space-2) 0 0; padding-left: 1.1em; font-size: var(--text-sm); color: var(--color-text-muted); }
+.cv-details li { display: list-item; padding: 0 0 var(--space-1); border: 0; }
+.cv-simple { margin: 0; padding-left: 1.1em; }
+.now { list-style: none; margin: 0 0 var(--space-6); padding: 0; border-top: 4px double var(--color-text); }
+.now li { display: grid; gap: var(--space-1) var(--space-5); padding-block: var(--space-3); border-bottom: 1px solid var(--color-rule); }
+@media (min-width: 48rem) { .now li { grid-template-columns: 14rem minmax(0, 1fr); } }
+.now__k { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: var(--text-sm); color: var(--color-burnt); }
+.now__v { font-family: var(--font-serif); }
+@media (max-width: 30rem) {
+  .theme-card { grid-template-columns: minmax(0, 1fr); }
+  .theme-card__media { grid-template-columns: repeat(2, minmax(0, 9rem)); }
+  .theme-card__text h3 { font-size: var(--text-base); letter-spacing: 0.04em; }
+}
+.theme-card__text h3 { overflow-wrap: anywhere; }
+
+/* Contact panel: dark like the first hero, fading into the photograph; light mustard type. */
+.hero--closing .closing {
+  width: min(40rem, 100%);
+  padding-right: clamp(5rem, 12vw, 11rem);
+  background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-dark) 62%, rgb(34 40 42 / 0.85) 75%, rgb(34 40 42 / 0) 100%);
+  color: var(--color-highlight);
+}
+.hero--closing .closing__title,
+.hero--closing .closing__nib,
+.hero--closing .closing a { color: var(--color-highlight); }
+.hero--closing .closing a { text-decoration-color: rgb(236 202 134 / 0.45); }
+.hero--closing .closing a:hover { color: #ff8a5c; text-decoration-color: currentColor; }
+.hero--closing .closing__links { border-top-color: rgb(236 202 134 / 0.3); }
+.hero--closing .closing :focus-visible { outline-color: var(--color-mustard); }
+@media (max-width: 47.99rem) {
+  .hero--closing .closing { width: 100%; padding-right: var(--space-6); background: linear-gradient(to top, var(--color-dark) 55%, rgb(34 40 42 / 0.75) 80%, rgb(34 40 42 / 0.2)); }
+}
+
+/* Header: NIB logo with institute and department beside it. */
+.site-brand__inst { gap: var(--space-3); text-decoration: none; }
+.site-brand__text {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+.site-header .site-brand__inst:hover .site-brand__text { text-decoration: underline; }
+@media (max-width: 47.99rem) { .site-brand__text { display: none; } }
+
+/* "In the field": full-width gallery scrolling sideways, photos uncropped in varied sizes. */
+.field { padding-inline: 0; }
+.field__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); }
+.field__controls { display: flex; gap: var(--space-2); }
+.field__controls button {
+  min-width: 2.75rem; min-height: 2.75rem;
+  font: inherit; font-size: var(--text-lg);
+  color: var(--color-on-dark); background: transparent;
+  border: 1px solid rgb(236 238 236 / 0.4); border-radius: 50%;
+  cursor: pointer;
+}
+.field__controls button:hover { border-color: var(--color-mustard); color: var(--color-mustard); }
+.field__scroller {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding: var(--space-3) 0 var(--space-5);
+  scrollbar-width: thin;
+  scrollbar-color: rgb(236 238 236 / 0.35) transparent;
+  cursor: grab;
+  user-select: none;
+}
+/* While dragging: no snapping or smooth scrolling, so the strip follows the mouse exactly. */
+.field__scroller.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.field__item img { -webkit-user-drag: none; }
+.field__scroller:focus-visible { outline-offset: -3px; }
+.field__item { margin: 0; flex: none; scroll-snap-align: start; }
+.field__item img { height: 100%; width: auto; max-width: none; display: block; }
+@media (prefers-reduced-motion: no-preference) { .field__scroller { scroll-behavior: smooth; } }
+
+/* Contact sits at the top of the closing panel. */
+.hero--closing .closing { justify-content: flex-start; padding-top: clamp(5rem, 14vh, 9rem); }
+
+/* Gallery: every photo the same height, at its own proportions (nothing cropped). */
+.field__scroller { align-items: stretch; }
+.field__item { height: clamp(14rem, 28vw, 24rem); }
+
+/* Collaborations: the map spans the full page width; summary and list stay in the column. */
+.collab-section .collab__map { margin-inline: 0; border-inline: 0; }
+.collab-section .collab__side { width: 100%; max-width: var(--page-max); margin-inline: auto; padding-inline: var(--gutter); }
+.collab-section .collab__svg { aspect-ratio: 2.4 / 1; }
+@media (max-width: 40rem) { .collab-section .collab__svg { aspect-ratio: 4 / 3; } }
+
+/* Closing photo mirrors the first hero: it stays fixed at the bottom of the screen and the
+   page content above scrolls up off it, revealing it (sticky bottom under .page-over). */
+.hero--closing { position: sticky; top: auto; bottom: 0; z-index: 0; }
+
+/* No visible scrollbar under the gallery; it still scrolls by drag, touch, trackpad and keyboard. */
+.field__scroller { scrollbar-width: none; -ms-overflow-style: none; }
+.field__scroller::-webkit-scrollbar { display: none; }
+/* Each stage confines its pinned photograph to its own part of the page. */
+.stage { position: relative; }
+
+/* Collage circles with flat mid-century backing discs (mustard / limestone grey), offset. */
+.collage__item { overflow: visible; border: 0; background: none; }
+.collage__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: translate(7%, 6%);
+}
+.collage__item--mustard::before { background: #ecca86; }
+.collage__item--stone::before { background: #c9d0d0; }
+.collage__item:nth-child(3n)::before { transform: translate(-7%, 7%); }
+.collage__photo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--color-bg);
+  background: var(--color-surface);
+}
+.collage__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ==========================================================================
+   About collage, rectangular: overlapping photos of Urban in mixed formats,
+   each on an offset flat block (mustard / limestone grey). Overrides the round version.
+   ========================================================================== */
+.collage { aspect-ratio: 1 / 1.08; }
+.collage__item { border-radius: 0; aspect-ratio: auto; }
+.collage__item::before { border-radius: 0; transform: translate(6%, 5%); }
+.collage__item:nth-child(3n)::before { transform: translate(-6%, 6%); }
+.collage__photo { border-radius: 0; border-width: 4px; }
+.collage__item--0 { width: 44%; aspect-ratio: 2 / 3; left: 2%;  top: 0;   z-index: 2; }
+.collage__item--1 { width: 50%; aspect-ratio: 4 / 3; left: 46%; top: 7%;  z-index: 1; }
+.collage__item--2 { width: 36%; aspect-ratio: 1;     left: 0;   top: 63%; z-index: 3; }
+.collage__item--3 { width: 46%; aspect-ratio: 4 / 3; left: 32%; top: 66%; z-index: 2; }
+.collage__item--4 { width: 40%; aspect-ratio: 4 / 3; left: 58%; top: 38%; z-index: 4; }
+
+/* About text: justified, without hyphenation. */
+.about__text .prose p { text-align: justify; hyphens: manual; -webkit-hyphens: manual; }
+
+/* ==========================================================================
+   CV section selector (About & CV page). Without JavaScript all panels show in order.
+   ========================================================================== */
+.cv-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 4px double var(--color-text);
+}
+.cv-tabs [role="tab"] {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  min-height: 2.5rem;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  border-radius: 0;
+  cursor: pointer;
+}
+.cv-tabs [role="tab"]:hover { border-color: var(--color-text); }
+.cv-tabs [role="tab"][aria-selected="true"] { background: var(--color-dark); border-color: var(--color-dark); color: var(--color-on-dark); }
+.cv-tabs [role="tab"][aria-selected="true"]::before { content: ""; display: inline-block; width: 0.5em; height: 0.5em; margin-right: 0.5em; background: var(--color-mustard); vertical-align: 0.05em; }
+.cv-panel + .cv-panel { margin-top: var(--space-7); }
+.cv-tabbed .cv-panel + .cv-panel { margin-top: 0; }
+.cv-panel__title { font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-4); }
+.cv-tabbed .cv-panel__title { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.cv-sub { font-size: var(--text-lg); font-weight: 500; margin: var(--space-6) 0 var(--space-3); }
+.cv-panel .pub-list { max-width: 64rem; }
+
+/* Research & projects page: wider project columns for the longer descriptions; finished PhD label. */
+.projects:not(.projects--strip) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); }
+.projects:not(.projects--strip) .project__summary { font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-3); }
+.finished__label { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-burnt); margin-bottom: var(--space-2); }
+
+/* Theme card with a scientific figure (DEB scheme): figure above the text, wide and linked
+   to the full-size file. */
+.theme-card--figure { grid-template-columns: minmax(0, 1fr); }
+.theme-card--figure .theme-card__media { max-width: 36rem; }
+.theme-card__figure { display: block; cursor: zoom-in; }
+.theme-card__figure img { width: 100%; height: auto; }
+.theme-card__figure:hover img { opacity: 0.85; }
+
+/* Opening height = screen height minus one row of the reptile strip, so the first row of duotone
+   tiles is fully visible on load and the second appears on scroll. A row is 4:3 tiles: six across
+   (height ~ 100vw / 8) on wide screens, two across (~ 37.5vw) on phones. */
+.stage:first-child > .hero { height: calc(100vh - 12.5vw); height: calc(100svh - 12.5vw); min-height: 26rem; }
+@media (max-width: 47.99rem) {
+  .stage:first-child > .hero { height: calc(100vh - 37.5vw); height: calc(100svh - 37.5vw); min-height: 24rem; }
+}
+
+/* The DEB figure sits in the theme grid like the other theme images (same size); click for full size. */
+@media (min-width: 30.01rem) { .theme-card--figure { grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); } }
+.theme-card--figure .theme-card__media { max-width: none; }
+
+/* Finished PhD on the Research & projects page: brief. */
+.phd-brief { max-width: 48rem; }
+.phd-brief__title { font-family: var(--font-serif); font-size: var(--text-lg); font-weight: 600; margin: 0 0 var(--space-2); }
+.phd-brief p:last-child { font-family: var(--font-serif); }
+.page-head .prose p + p { margin-top: var(--space-3); }
+
+/* Same header layout on every page (full width, same side padding and height); only the colours
+   differ between the home page (over the photo) and subpages. */
+.site-header__inner { max-width: none; padding-inline: clamp(1rem, 4.5vw, 4.5rem); }
+
+/* Research statement on the home page: one paragraph, all Jost (Futura-style), one size between the old
+   large lead and the body text. */
+.statement__text-p {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 0.9vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 36ch;
+  margin: 0;
+}
+
+/* Phones: the DEB figure sits full width above its text, like a figure in a paper. */
+@media (max-width: 30rem) {
+  .theme-card--figure { grid-template-columns: minmax(0, 1fr); }
+  .theme-card--figure .theme-card__media { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Research themes: photographs in a band of one height above the text, so every card has the
+   same shape and the headings line up across each row. Photos keep their proportions. */
+.theme-card, .theme-card--figure { grid-template-columns: minmax(0, 1fr); grid-template-rows: 10rem auto; gap: var(--space-4); }
+.theme-card__media, .theme-card--figure .theme-card__media {
+  display: flex; align-items: flex-end; gap: var(--space-2);
+  height: 10rem; max-width: 100%;
+}
+.theme-card__img { display: block; flex: 0 1 auto; min-width: 0; height: 100%; }
+.theme-card__img picture { display: contents; }
+.theme-card__img img, .theme-card__figure img {
+  height: 100%; width: auto; max-width: 100%;
+  object-fit: contain; object-position: left bottom;
+}
+@media (max-width: 30rem) {
+  .theme-card, .theme-card--figure { grid-template-rows: 7.5rem auto; }
+  .theme-card__media, .theme-card--figure .theme-card__media { height: 7.5rem; }
+}
+
+/* Header: name and NIB on the left, page links in the middle, profile icons on the right.
+   Narrower screens: name and icons on the first row, page links below. */
+.site-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "brand profiles" "nav nav";
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+}
+.site-brand { grid-area: brand; min-width: 0; }
+.site-nav { grid-area: nav; }
+.site-profiles { grid-area: profiles; }
+.site-title { white-space: nowrap; }
+.site-brand__text { max-width: 12.5rem; }
+@media (min-width: 30.01rem) { .site-nav { justify-self: center; } }
+@media (min-width: 84rem) {
+  .site-header__inner { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-areas: "brand nav profiles"; }
+  .site-profiles { justify-self: end; }
+}
+@media (max-width: 30rem) {
+  .site-header__inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "brand" "nav" "profiles"; }
+  .site-profiles { margin-left: -0.5rem; }
+}
+.site-profiles { display: flex; gap: 0.15rem; list-style: none; margin: 0; padding: 0; }
+.site-profiles a {
+  display: grid; place-items: center;
+  width: 2.25rem; height: 2.25rem;
+  color: var(--color-text);
+  border-radius: 2px;
+}
+.site-profiles a:hover { color: var(--color-accent); }
+.site-profiles .icon { width: 1.15rem; height: 1.15rem; fill: currentColor; }
+.site-header--overlay .site-profiles a { color: #fff; filter: drop-shadow(0 1px 6px rgb(0 0 0 / 0.4)); }
+.site-header--overlay .site-profiles a:hover { color: var(--color-highlight); }
+
+/* Publications page: year subheadings, entries across the full width.
+   Wide screens: the year sits in its own column beside its papers; each entry puts
+   title, authors and description on the left and journal and DOI on the right. */
+.pub-year { padding-block: var(--space-5) var(--space-3); border-top: 1px solid var(--color-text); }
+.pub-year:first-of-type { border-top: 0; padding-top: var(--space-2); }
+.pub-year__label {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl, 2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--color-burnt);
+  margin: 0 0 var(--space-3);
+}
+.pub-list--wide { max-width: none; }
+.pub-list--wide .pub__title { max-width: none; text-wrap: pretty; }
+.pub-list--wide .pub:last-child { border-bottom: 0; }
+@media (min-width: 48rem) {
+  .pub-year { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+  .pub-year__label { position: sticky; top: var(--space-4); margin: 0; padding-top: var(--space-1); }
+}
+@media (min-width: 64rem) {
+  .pub-list--wide .pub article {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
+    column-gap: var(--space-6);
+  }
+  .pub-list--wide .pub__title { grid-column: 1; grid-row: 1; }
+  .pub-list--wide .pub__authors { grid-column: 1; grid-row: 2; }
+  .pub-list--wide .pub__desc { grid-column: 1; grid-row: 3; }
+  .pub-list--wide .pub__meta { grid-column: 2; grid-row: 1 / span 3; padding-top: 0.2em; }
+  .pub-list--wide .pub__links { overflow-wrap: anywhere; }
+}
+
+/* Phones: a compact three-line header (name and NIB, page links, profile icons), with
+   the icon glyphs lined up on the same left edge as the text above them. */
+@media (max-width: 30rem) {
+  .site-header__inner { row-gap: 0.35rem; padding-block: var(--space-3) var(--space-2); }
+  .site-nav ul { gap: 0 var(--space-4); }
+  .site-nav a { padding-block: 0.3rem; }
+  .site-profiles { margin-left: -0.55rem; gap: 0.35rem; }
+  .site-profiles a { width: 2rem; height: 2rem; }
+  .site-profiles .icon { width: 1.05rem; height: 1.05rem; }
+}
+
+/* Decorative illustration in the empty space beside a page intro: a stone duotone at low
+   strength, fading out at every edge so it reads as a faint engraving. Wide screens only. */
+.page-head--illus { position: relative; isolation: isolate; }
+.page-head__illus { display: none; }
+@media (min-width: 64rem) {
+  .page-head__illus {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: var(--space-5);
+    bottom: 0;
+    width: auto;
+    max-width: min(40rem, calc(100% - var(--measure) - var(--space-6)));
+    height: calc(100% - var(--space-5));
+    object-fit: contain;
+    object-position: right center;
+    opacity: 0.4;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(closest-side, #000 35%, transparent);
+            mask-image: radial-gradient(closest-side, #000 35%, transparent);
+  }
+}
+
+/* About: a soft illustration fills the column under the photo collage (wide screens). */
+.about__side { min-width: 0; }
+.about__illus { display: none; }
+@media (min-width: 48rem) {
+  .about__side { align-self: stretch; display: flex; flex-direction: column; gap: var(--space-3); }
+  /* Bigger than the column, running out into the left margin, with long soft edges. */
+  .about__illus {
+    display: block;
+    flex: 1 1 0;
+    min-height: 18rem;
+    width: calc(100% + clamp(1.5rem, 7vw, 7rem));
+    max-width: none;
+    margin-left: calc(-1 * clamp(1.5rem, 7vw, 7rem));
+    margin-bottom: calc(-1 * var(--space-6));
+    object-fit: cover;
+    object-position: 45% 40%;
+    opacity: 0.45;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at 58% 50%, #000 15%, rgb(0 0 0 / 0.6) 45%, transparent 100%);
+            mask-image: radial-gradient(ellipse 50% 50% at 58% 50%, #000 15%, rgb(0 0 0 / 0.6) 45%, transparent 100%);
+  }
+}
+
+/* Publications: one large, very soft illustration behind the top of the page,
+   fading out downwards and at the sides. Low enough in contrast to keep text AA. */
+.backdrop-wrap { position: relative; isolation: isolate; overflow-x: clip; }
+.backdrop {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  width: 100%;
+  /* The whole picture at its own proportions (nothing cut off at the top); it fades out
+     towards the bottom, so the lower part never sits under the paper list at full strength. */
+  height: auto;
+  opacity: 0.16;
+  pointer-events: none;
+  /* Fades downwards, and is fainter on the left where the text starts. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 42%, transparent 80%), linear-gradient(to right, rgb(0 0 0 / 0.25), #000 65%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 42%, transparent 80%), linear-gradient(to right, rgb(0 0 0 / 0.25), #000 65%);
+          mask-composite: intersect;
+}
+
+
+/* Publications page starts directly with the list; room above it for the soft background. */
+.pubs-head + .section { padding-top: clamp(3rem, 8vw, 6rem); border-top: 0; }
+
+/* ==========================================================================
+   Research themes, quiet version: equal cards, no boxes. Each card has a soft mat of the
+   same shape holding its photographs or figure uncropped; slightly muted colour that
+   comes up on hover; small number, sentence-case title, short text.
+   ========================================================================== */
+.theme-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6) var(--space-5);
+  padding-bottom: var(--space-6);
+  border-top: 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+@media (min-width: 40rem) { .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .theme-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.theme-card, .theme-card--figure,
+.theme-card:nth-child(odd), .theme-card:nth-child(even) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-4);
+  padding: 0;
+  border: 0;
+}
+.theme-card__media, .theme-card--figure .theme-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: auto;
+  max-width: none;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: var(--space-4);
+  background: var(--color-tint);
+}
+.theme-card__img { display: flex; align-items: center; justify-content: center; flex: 0 1 auto; min-width: 0; height: 100%; }
+.theme-card__img img, .theme-card__figure img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.theme-card__img img { filter: saturate(0.82) contrast(0.97); transition: filter 300ms ease; }
+.theme-card:hover .theme-card__img img { filter: none; }
+@media (prefers-reduced-motion: reduce) { .theme-card__img img { transition: none; } }
+.theme-card__num {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  color: var(--color-burnt);
+}
+.theme-card__text h3, .theme-card:nth-child(n) .theme-card__text h3 {
+  display: block;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin: 0 0 var(--space-2);
+}
+.theme-card__text h3::before { content: none; }
+.theme-card__text p:not(.theme-card__num) { font-size: var(--text-sm); line-height: 1.65; color: var(--color-text-muted); }
+@media (max-width: 30rem) {
+  .theme-card, .theme-card--figure { grid-template-rows: none; }
+  .theme-card__media, .theme-card--figure .theme-card__media { height: auto; padding: var(--space-3); }
+}
+
+/* Themes without mats: photos stand on the page, on a shared baseline above the number,
+   aligned with the text; the frame keeps every card the same shape. */
+.theme-card__media, .theme-card--figure .theme-card__media {
+  background: none;
+  padding: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.theme-card__img { align-items: flex-end; }
+@media (max-width: 30rem) {
+  .theme-card__media, .theme-card--figure .theme-card__media { padding: 0; }
+}
+/* Photos of a card share one height and together fill the card's width (flex-grow by
+   aspect ratio), so every card's images form one even band; the frame is 2:1. */
+.theme-card__media, .theme-card--figure .theme-card__media { aspect-ratio: 2 / 1; }
+.theme-card__media .theme-card__img:not(.theme-card__figure) { flex: var(--r, 1) 1 0; height: auto; }
+.theme-card__media .theme-card__img:not(.theme-card__figure) img { width: 100%; height: auto; max-height: none; }
+
+/* One line under the themes, not two: the next section drops its own divider. */
+.section:has(> .theme-band) + .section { border-top: 0; }
+
+/* ==========================================================================
+   Soft circles (as behind the statement photo): mustard and grey discs at low strength.
+   About collage: two large circles behind the whole collage replace the offset blocks.
+   Research themes: one smaller bubble per card, varying in colour and position.
+   ========================================================================== */
+.collage { isolation: isolate; }
+.collage__item::before { content: none; }
+.collage::before, .collage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 58%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.collage::before { top: -6%; right: -3%; background: var(--color-mustard); opacity: 0.28; }
+.collage::after { bottom: -10%; left: -6%; background: var(--color-accent); opacity: 0.16; }
+
+.theme-card__media { position: relative; isolation: isolate; }
+.theme-card__media::before, .theme-card__media::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+/* One bubble per card, alternating colour and corner: an aesthetic detail, not a pattern. */
+.theme-card__media::after { content: none; }
+.theme-card__media::before { background: var(--color-mustard); opacity: 0.28; top: 0; right: -5%; }
+.theme-card:nth-child(4n + 2) .theme-card__media::before { background: var(--color-accent); opacity: 0.16; top: auto; bottom: -10%; right: auto; left: -5%; }
+.theme-card:nth-child(4n + 3) .theme-card__media::before { width: 26%; top: auto; bottom: -8%; right: 8%; }
+.theme-card:nth-child(4n + 4) .theme-card__media::before { background: var(--color-accent); opacity: 0.16; top: 4%; right: auto; left: -6%; }
+
+/* Research themes: no decorative shapes behind the cards. */
+.theme-card__media::before, .theme-card__media::after { content: none !important; }
+.theme-band { position: relative; }
+
+/* Research themes: Usonian "cantilever" lines between the photos and the title: a long
+   rust line across the card and a shorter mustard line offset beneath it, like an overhang. */
+.theme-card__rule {
+  position: relative;
+  display: block;
+  height: 2px;
+  margin: calc(var(--space-1) * -1) 0 var(--space-2);
+  background: var(--color-burnt);
+}
+.theme-card__rule::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  top: 6px;
+  width: 52%;
+  height: 2px;
+  background: var(--color-mustard);
+}
+
+/* Cantilever lines elsewhere (same motif as the theme cards): a long line and a shorter one
+   offset beneath it, drawn as two background lines so no extra markup is needed.
+   The mustard line starts at 18% and spans 52% (background-position 37.5% of the free space). */
+.cv-tabs {
+  border-bottom: 0;
+  padding-bottom: calc(var(--space-4) + 8px);
+  background:
+    linear-gradient(var(--color-burnt), var(--color-burnt)) 0 calc(100% - 6px) / 100% 2px no-repeat,
+    linear-gradient(var(--color-mustard), var(--color-mustard)) 37.5% 100% / 52% 2px no-repeat;
+}
+.pub-year { border-top-color: var(--color-rule); }
+.pub-year__label::after {
+  content: "";
+  display: block;
+  width: min(100%, 6rem);
+  height: 8px;
+  margin-top: var(--space-2);
+  background:
+    linear-gradient(var(--color-burnt), var(--color-burnt)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(var(--color-mustard), var(--color-mustard)) 37.5% 6px / 52% 2px no-repeat;
+}
+.hero--closing .closing__links {
+  border-top: 0;
+  padding-top: calc(var(--space-3) + 8px);
+  background:
+    linear-gradient(var(--color-highlight), var(--color-highlight)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(var(--color-burnt), var(--color-burnt)) 37.5% 6px / 52% 2px no-repeat;
+}
+
+/* Home introduction (statement and biography in one), all in Jost: a larger opening sentence,
+   a cantilever line, then three short paragraphs; aligned left, not justified. */
+.about--home .about__text { max-width: 40rem; align-self: center; }
+.about__lead {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  color: var(--color-text);
+  margin: 0;
+  text-wrap: pretty;
+}
+.about__rule {
+  display: block;
+  height: 8px;
+  margin: var(--space-4) 0 var(--space-4);
+  background:
+    linear-gradient(var(--color-burnt), var(--color-burnt)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(var(--color-mustard), var(--color-mustard)) 37.5% 6px / 52% 2px no-repeat;
+}
+.about__p {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0 0 var(--space-3);
+  text-wrap: pretty;
+}
+.about__p .taxon { font-style: italic; }
+.about--home .more-link { margin-top: var(--space-4); }
+
+/* Home "Recent publications": the same soft competition scene as the Publications page.
+   On the grey tint it is multiplied, so its light parts vanish instead of showing as patches. */
+.tint.backdrop-wrap { overflow: clip; }
+.tint.backdrop-wrap > .backdrop { mix-blend-mode: multiply; opacity: 0.22; }
+
+/* The opening sentence of the home introduction is centred. */
+.about__lead { text-align: center; text-wrap: balance; }

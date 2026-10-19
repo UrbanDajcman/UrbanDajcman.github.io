@@ -1,0 +1,40 @@
+{
+  "_note": "Research themes shown on the homepage and the Research page. Add new themes as new items; 'slug' reserves the future URL /research/<slug>/. 'images' lists keys from data/images.json shown beside the theme.",
+  "items": [
+    {
+      "slug": "mechanistic-ecology",
+      "title": "Mechanistic modelling",
+      "summary": "Process-based models (Dynamic Energy Budget theory, NicheMapR) that predict where species can live and how they interact, from physiology and microclimate.",
+      "images": [
+        "deb-scheme"
+      ]
+    },
+    {
+      "slug": "species-interactions",
+      "title": "Species interactions",
+      "summary": "How competition between related species shifts along environmental gradients, and what lets them coexist as the climate changes.",
+      "images": [
+        "horvathi",
+        "muralis"
+      ]
+    },
+    {
+      "slug": "thermal-ecology",
+      "title": "Thermal ecology and climate change",
+      "summary": "The microclimates animals actually experience, and what warming means for their activity, growth and survival.",
+      "images": [
+        "placing-logger",
+        "loggers"
+      ]
+    },
+    {
+      "slug": "field-ecophysiology",
+      "title": "Field ecology and ecophysiology",
+      "summary": "Field measurements, environmental sensors and physiology of reptiles and amphibians, used to build models and test their predictions.",
+      "images": [
+        "processing",
+        "sem"
+      ]
+    }
+  ]
+}
