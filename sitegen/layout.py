@@ -75,7 +75,9 @@ def head(profile: dict, title: str, description: str, path: str, og_type: str, e
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap">',
         '<link rel="stylesheet" href="/css/global.css">',
-        '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
+        '<link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32">',  # bump ?v= after changing the icon
+        '<link rel="icon" href="/favicon-192.png?v=3" type="image/png" sizes="192x192">',
+        '<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">',
         f'<meta property="og:type" content="{og_type}">',
         f'<meta property="og:title" content="{esc(full_title)}">',
         f'<meta property="og:description" content="{esc(description)}">',
